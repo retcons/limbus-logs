@@ -6,6 +6,28 @@
   --Post-Rows-Spacing: 0px;
 }
 
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #996633 transparent;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #996633;
+    border-radius: 0px;
+    border: 0px solid transparent;
+  }
+
 /* grid column spacing */
 [griddery-id=".gallery-item"] [griddery-col] + [griddery-col] {
   padding-left: var(--Post-Columns-Spacing);
@@ -54,7 +76,7 @@ body {
 }
 
 dialog {
-  width: 90%;
+  width: 60%;
   padding: 20px;
   border: 1px solid #996633;
   background-color: #120804;
@@ -62,11 +84,11 @@ dialog {
 }
 
 dialog p {
-    margin-top: 0;
-    line-height: 150%;
-    color: #ffe9cd;
-  }
-  
+  margin-top: 0;
+  line-height: 150%;
+  color: #ffe9cd;
+}
+
 dialog::backdrop {
   background-color: #070602d8;
 }
@@ -87,19 +109,25 @@ dialog::backdrop {
 }
 
 .close-dialog-btn {
-    font-family: "Bebas Neue", sans-serif;
-    font-size: 20px;
-    background-color: #16130e83;
-    border: 1px solid #996633;
-    color: #996633;
-    padding: 0.5px 20px;
-    transition: 0.125s;
-  }
-  
-  .close-dialog-btn:hover {
-    background-color: #120804;
-    color: #e3c290;
-  }  
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 20px;
+  background-color: #16130e83;
+  border: 1px solid #996633;
+  color: #996633;
+  padding: 0.5px 20px;
+  transition: 0.125s;
+  margin-top: 10px;
+}
+
+.close-dialog-btn:hover {
+  background-color: #120804;
+  color: #e3c290;
+}
+
+.log {
+    max-height: 90vh;
+    overflow-y: scroll;
+}
 
 .name {
   display: flex;
@@ -112,9 +140,9 @@ dialog::backdrop {
 }
 
 .name p {
-    margin: 0;
-    width: 50%;
-    line-height: 85%;
+  margin: 0;
+  width: 50%;
+  line-height: 85%;
 }
 
 .details {
@@ -148,6 +176,12 @@ h2 {
 h1 {
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   font-weight: normal;
+  margin-bottom: 0;
+}
+
+sup {
+    font-style: italic;
+    color: #ffe9cd85;
 }
 
 /* Media Queries */
@@ -163,15 +197,14 @@ h1 {
   .id {
     font-size: 16px;
   }
-  
-.risk img {
+
+  .risk img {
     width: 100%;
   }
-  
+
   .name p {
     font-size: 90%;
-}
-
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -186,15 +219,15 @@ h1 {
   :root {
     --Post-Columns: 1;
   }
-  
+
   .id {
     font-size: 24px;
   }
   .risk img {
-      width: 70%;
-    }
-    
+    width: 70%;
+  }
+
   .name p {
     font-size: 24px;
-}
+  }
 }
