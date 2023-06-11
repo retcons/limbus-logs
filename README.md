@@ -6,7 +6,7 @@ A collection for easy access to observation logs of enemies & abnormalities in L
 ## Changelog
 
 Latest Version: v1.1<br>
-Last Updated: June 6, 2023
+Last Updated: June 11, 2023
 
 <details>
 <summary>Update History</summary>
@@ -15,7 +15,7 @@ Last Updated: June 6, 2023
   - Logs now display who wrote the observation log
     - Additional comments from other sinners are color-coded.
     - Referenced [namu.wiki](https://namu.wiki/w/Limbus%20Company) when discerning who's writing.
-  - Added Spiced-Up Papa Bongy
+  - Added Spiced-Up Papa Bongy (I FORGOT. I'M SORRY PAPA BONGY.)
 - v.1.0
   - Page created <3
 
