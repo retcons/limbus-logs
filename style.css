@@ -45,6 +45,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
 .gallery {
@@ -81,6 +82,7 @@ dialog {
   border: 1px solid #996633;
   background-color: #120804;
   color: #e3c290;
+  text-align: left;
 }
 
 dialog p {
@@ -125,7 +127,7 @@ dialog::backdrop {
 }
 
 .log {
-    max-height: 90vh;
+    max-height: 80vh;
     overflow-y: scroll;
 }
 
@@ -167,6 +169,12 @@ dialog::backdrop {
   width: 70%;
 }
 
+.bottom {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+}
+
 h2 {
   font-family: "Bebas Neue", sans-serif;
   font-weight: normal;
@@ -182,6 +190,54 @@ h1 {
 sup {
     font-style: italic;
     color: #ffe9cd85;
+}
+
+.ishmael {
+  color:#ff9500;
+}
+
+.faust {
+  color: #ffbfb4;
+}
+
+.heathcliff {
+  color:#8360b1;
+}
+
+.rodion {
+  color:#bb2727;
+}
+
+.outis {
+  color: #4c8057;
+}
+
+.ryoshu {
+  color: #e20000;
+}
+
+.sinclair {
+  color:#b4c452;
+}
+
+.meursault {
+  color:#7487e2;
+}
+
+.honglu {
+  color: #5BFFDE;
+}
+
+.gregor {
+  color:#a76936;
+}
+
+.donquixote {
+  color:#FFEF23;
+}
+
+.yisang {
+  color: #d4dfe8;
 }
 
 /* Media Queries */
