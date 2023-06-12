@@ -3,17 +3,15 @@
   <head>
     <title>Observation Log Library</title>
     <link rel="stylesheet" href="style.css" />
-
-    <link rel="icon" type="image/x-icon" href="images/favicon.png" />
-    <!-- jquery -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/isotope-layout@3.0.6/dist/isotope.min.css"
+    />
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="//griddery.github.io/grid.js"></script>
-    <link href="//griddery.github.io/basics.css" rel="stylesheet" />
-    <script>
-      $(document).ready(function () {
-        gridderyV2(".gallery-item", "--Post-Columns");
-      });
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/isotope-layout@3.0.6/dist/isotope.pkgd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="images/favicon.png" />
   </head>
   <body>
     <h1>Limbus Company Observation Log Library</h1>
@@ -22,11 +20,27 @@
       observation logs in Limbus Company. Some may be combined due to identical
       entries, but not all. Additional comments from other sinners will be
       color-coded accordingly.<br /><sup
-        >last updated: canto iv part ii - june 11 2023</sup
+        >last updated: canto iv part ii - june 12 2023</sup
       >
     </p>
+    <div id="filter-buttons">
+      <p class="filterhead">Log Writer</p>
+      <button data-filter="*">All</button>
+      <button data-filter=".yisang">Yi Sang</button>
+      <button data-filter=".faust">Faust</button>
+      <button data-filter=".donquixote">Don Quixote</button>
+      <button data-filter=".ryoshu">Ryōshū</button>
+      <button data-filter=".meursault">Meursault</button>
+      <button data-filter=".honglu">Hong Lu</button>
+      <button data-filter=".heathcliff">Heathcliff</button>
+      <button data-filter=".ishmael">Ishmael</button>
+      <button data-filter=".rodion">Rodion</button>
+      <button data-filter=".sinclair">Sinclair</button>
+      <button data-filter=".outis">Outis</button>
+      <button data-filter=".gregor">Gregor</button>
+    </div>
     <div class="gallery">
-      <div class="gallery-item">
+      <div class="gallery-item yisang">
         <button class="open-dialog-btn">
           <img src="images/Peccatulum_Superbiae.png" />
           <div class="name">
@@ -57,7 +71,7 @@
           </div>
         </dialog>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item ishmael">
         <button class="open-dialog-btn">
           <img src="images/Peccatulum_Gulae.png" />
           <div class="name">
@@ -95,7 +109,7 @@
           </div>
         </dialog>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item yisang">
         <button class="open-dialog-btn">
           <img src="images/Peccatulum_Acediae.png" />
           <div class="name">
@@ -132,7 +146,7 @@
           </div>
         </dialog>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item heathcliff">
         <button class="open-dialog-btn">
           <img src="images/Peccatulum_Irae.png" />
           <div class="name">
@@ -158,10 +172,11 @@
               suffocating...<br />A-Anyway, it makes you feel all weird. Makes
               you mad over wee stuff.<br />Some even blew up after getting hit
               by that juice. I really don't want that happening to me.<br /><span
-                class="ishmael"
-                >→ Weren't you always prone to getting mad over the smallest
+                id="ishmael"
+              >
+                → Weren't you always prone to getting mad over the smallest
                 things?</span
-              ></span><br /><span class="heathcliff">→ Don't piss me off.</span>
+              ><br /><span id="heathcliff">→ Don't piss me off.</span>
             </p>
           </div>
 
@@ -171,7 +186,7 @@
           </div>
         </dialog>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item meursault">
         <button class="open-dialog-btn">
           <img src="images/Peccatulum_Morositatis.png" />
           <div class="name">
@@ -206,7 +221,7 @@
           </div>
         </dialog>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item sinclair">
         <button class="open-dialog-btn">
           <img src="images/Peccatulum_Luxuriae.png" />
           <div class="name">
@@ -236,7 +251,7 @@
           </div>
         </dialog>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item faust">
         <button class="open-dialog-btn">
           <img src="images/Ebony_Queens_Apple.png" />
           <div class="name">
@@ -316,7 +331,7 @@
           </div>
         </dialog>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item yisang">
         <button class="open-dialog-btn">
           <img src="images/Doomsday_Calendar.png" />
           <div class="name">
@@ -340,7 +355,7 @@
               away.<br />One thing I can say with confidence is that it was
               likely a tool for predicting a date of some kind, judging from the
               many letters carved on the bricks.<br />Such is all I have to
-              say.<br /><span class="faust"
+              say.<br /><span id="faust"
                 >→ Those letters are from an ancient language. If Yi Sang's
                 depiction is correct, that plate is almost certainly a
                 calendar.</span
@@ -359,15 +374,16 @@
               strange spatial extensions...or such.<br />I can't say for sure
               how drastic the change will be, but an observable trend is that
               it's becoming more and more ominous.<br />Such is all I have to
-              say.<br /><span class="heathcliff"
-              >→ Why the hell did you put me in instead of those masked
-              blokes? You damned clockhead, I'll #%^&@</span>[The rest is neatly
-              censored with a correction tape.]<br /><span class="faust"
+              say.<br /><span id="heathcliff"
+                >→ Why the hell did you put me in instead of those masked
+                blokes? You damned clockhead, I'll #%^&@</span
+              >[The rest is neatly censored with a correction tape.]<br /><span
+                id="faust"
                 >→ Dante made the right choice. From what I can see, it seems
                 that those flesh dolls, or "clay dolls," can't be offered up
                 while they're alive. The only other option we have is to
                 sacrifice Sinners.</span
-              ><br /><span class="heathcliff"
+              ><br /><span id="heathcliff"
                 >→ And why does that have to be me @(##$</span
               >[The rest is neatly censored with a correction tape.]
             </p>
@@ -390,7 +406,7 @@
               while it may be misleading to say that it was there but even still
               I witnessed man and sky and earth tear into thousands of pieces<br />[The
               rest is neatly censored with a correction tape.]<br /><span
-                class="faust"
+                id="faust"
                 >→ I had Yi Sang talk with the recovery staff from After Team
                 for a moment. His psychological corruption seems rather severe.
                 Dante, I think we should refrain from making our observers
@@ -404,7 +420,7 @@
           </div>
         </dialog>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item faust">
         <button class="open-dialog-btn">
           <img src="images/Doomsday_Clay_Doll.png" />
           <div class="name">
@@ -451,10 +467,10 @@
               gradually changed accordingly.<br />Faust is curious. I should
               make it my next task to study the extent of this
               transformation.<br />Concluding the report.<br /><span
-                class="ishmael"
+                id="ishmael"
                 >→ Um, hello, aren't you forgetting to mention the part where
                 they hug us and belch fire? One of them burnt all my hair.</span
-              ><br /><span class="rodion"
+              ><br /><span id="rodion"
                 >→ Hey Faust! Can't we sell these heads to an antique shop?
                 Don't they look pretty pricey?</span
               >
@@ -469,7 +485,7 @@
               revealed no combustible materials stored inside, suggesting that
               the fire was not created via physical means.<br />No further
               discoveries were made.<br />...A shame, Faust was hoping to learn
-              more things.<br /><span class="outis"
+              more things.<br /><span id="outis"
                 >→ You made me stand guard for hours while you dissected their
                 bodies, try to be happy with what you got.</span
               >
@@ -481,7 +497,7 @@
           </div>
         </dialog>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item gregor">
         <button class="open-dialog-btn">
           <img src="images/Golden_Apple.png" />
           <div class="name">
@@ -511,12 +527,19 @@
               apples as much as I do. I guess that's on my unusual past.<br />We
               decided to fall back for now since we had too little intel to try
               and fight.<br />We'll probably take on it at some point, so I'll
-              write down more when that time comes.<br /><span class="outis">→ How disorganized.
-              Were your reports as terrible during your military service?</span><br /><span class="faust">→
-              Vergilius instructed us to write these however we wanted. Dante
-              agreed with that, too.</span><br /><span class="outis">→ …If Executive Manager is fine with
-              it, I won't object.</span><br /><span class="ryoshu">→ [A cigarette burn is left on the
-              paper.] S.P.C.</span><br /><span class="ishmael">→ Seriously, some petty complaint that was.</span>
+              write down more when that time comes.<br /><span id="outis"
+                >→ How disorganized. Were your reports as terrible during your
+                military service?</span
+              ><br /><span id="faust"
+                >→ Vergilius instructed us to write these however we wanted.
+                Dante agreed with that, too.</span
+              ><br /><span id="outis"
+                >→ …If Executive Manager is fine with it, I won't object.</span
+              ><br /><span id="ryoshu"
+                >→ [A cigarette burn is left on the paper.] S.P.C.</span
+              ><br /><span id="ishmael"
+                >→ Seriously, some petty complaint that was.</span
+              >
             </p>
             <h2>Observation Level 1</h2>
             <p>
@@ -546,12 +569,15 @@
               funny, isn't it. I was feeling a sense of kinship with that
               crawler. I guess it's because we were both pests…<br />Realizing
               that, I just couldn't stay calm. I had to tear that detestable
-              face apart to find peace.<br />And then, and then...<br /><span class="faust">→ Gregor
-              was struggling to maintain his cool in his writing, so I relieved
-              him of his pen. He didn't have much else to offer in terms of
-              information, anyway.</span><br /><span class="gregor">→ Those maggots squirmed harder than I
-              expected when I scorched 'em with my cigarette. Does this count as
-              intel?</span>
+              face apart to find peace.<br />And then, and then...<br /><span
+                id="faust"
+                >→ Gregor was struggling to maintain his cool in his writing, so
+                I relieved him of his pen. He didn't have much else to offer in
+                terms of information, anyway.</span
+              ><br /><span id="gregor"
+                >→ Those maggots squirmed harder than I expected when I scorched
+                'em with my cigarette. Does this count as intel?</span
+              >
             </p>
           </div>
 
@@ -560,7 +586,7 @@
           </div>
         </dialog>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item gregor">
         <button class="open-dialog-btn">
           <img src="images/False_Apple.png" />
           <div class="name">
@@ -590,12 +616,19 @@
               apples as much as I do. I guess that's on my unusual past.<br />We
               decided to fall back for now since we had too little intel to try
               and fight.<br />We'll probably take on it at some point, so I'll
-              write down more when that time comes.<br /><span class="outis">→ How disorganized.
-              Were your reports as terrible during your military service?</span><br /><span class="faust">→
-              Vergilius instructed us to write these however we wanted. Dante
-              agreed with that, too.</span><br /><span class="outis">→ …If Executive Manager is fine with
-              it, I won't object.</span><br /><span class="ryoshu">→ [A cigarette burn is left on the
-              paper.] S.P.C.</span><br /><span class="ishmael">→ Seriously, some petty complaint that was.</span>
+              write down more when that time comes.<br /><span id="outis"
+                >→ How disorganized. Were your reports as terrible during your
+                military service?</span
+              ><br /><span id="faust"
+                >→ Vergilius instructed us to write these however we wanted.
+                Dante agreed with that, too.</span
+              ><br /><span id="outis"
+                >→ …If Executive Manager is fine with it, I won't object.</span
+              ><br /><span id="ryoshu"
+                >→ [A cigarette burn is left on the paper.] S.P.C.</span
+              ><br /><span id="ishmael"
+                >→ Seriously, some petty complaint that was.</span
+              >
             </p>
             <h2>Observation Level 1</h2>
             <p>
@@ -625,20 +658,24 @@
               funny, isn't it. I was feeling a sense of kinship with that
               crawler. I guess it's because we were both pests…<br />Realizing
               that, I just couldn't stay calm. I had to tear that detestable
-              face apart to find peace.<br />And then, and then...<br /><span class="faust">→ Gregor
-              was struggling to maintain his cool in his writing, so I relieved
-              him of his pen. He didn't have much else to offer in terms of
-              information, anyway.</span><br /><span class="gregor">→ Those maggots squirmed harder than I
-              expected when I scorched 'em with my cigarette. Does this count as
-              intel?</span>
-            </p></div>
+              face apart to find peace.<br />And then, and then...<br /><span
+                id="faust"
+                >→ Gregor was struggling to maintain his cool in his writing, so
+                I relieved him of his pen. He didn't have much else to offer in
+                terms of information, anyway.</span
+              ><br /><span id="gregor"
+                >→ Those maggots squirmed harder than I expected when I scorched
+                'em with my cigarette. Does this count as intel?</span
+              >
+            </p>
+          </div>
 
           <div class="bottom">
             <button class="close-dialog-btn">Close</button> Log Writer: Gregor
           </div>
         </dialog>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item ishmael">
         <button class="open-dialog-btn">
           <img src="images/Grown_Powerful!_For_Realsies.png" />
           <div class="name">
@@ -660,12 +697,16 @@
               unmatching colors, some straight up lacked frames to cover up the
               mechanisms.<br />They weren't all machines, either.<br />Between
               the parts, I saw bits of flesh and dried blood...<br />Just what
-              is going on inside that box?<br /><span class="sinclair">→ Umm... Maybe it's a type of
-              automated prosthetic procedure device? A company my father
-              considered buying was… N-Never mind. Forget I said anything.</span><br /><span class="faust">→
-              Abnormalities are not real devices. I recommend against trying to
-              make ties with existing things.</span>
+              is going on inside that box?<br /><span id="sinclair"
+                >→ Umm... Maybe it's a type of automated prosthetic procedure
+                device? A company my father considered buying was… N-Never mind.
+                Forget I said anything.</span
+              ><br /><span id="faust"
+                >→ Abnormalities are not real devices. I recommend against
+                trying to make ties with existing things.</span
+              >
             </p>
+
             <h2>Observation Level 1</h2>
             <p>
               They're tough. These things are way tougher than they look.<br />I
@@ -677,16 +718,26 @@
               body rotates all the way round, and their arms moved weirdly,
               too.<br />And most of all… It's like they're incapable of feeling
               pain.<br />I heard some alleys in the Backstreets provide a
-              surgery that fries pain receptors. Could this be similar?<br /><span class="faust">→
-              As I repeatedly assert, Abnormalities are entities of their own
-              category. You shouldn't construe them with the City's standards,
-              Ishmael.</span><br /><span class="meursault">→ And yet Abnormalities physically exist in this
-              realm. If the properties of a thing aren't determined by the laws
-              of the space it exists in, can it truly be said to exist?</span><br /><span class="heathcliff">→
-              The hell are you yapping on about?</span><br /><span class="faust">→ I don't believe it's
-              necessary for you to understand, Heathcliff.</span><br /><span class="heathcliff">→ Huh? Is my
-              name written here somewhere? How'd you know it was me?</span><br /><span class="ryoshu">→
-              …Funny. [A cigarette burn is left on the paper.</span>
+              surgery that fries pain receptors. Could this be similar?<br /><span
+                id="faust"
+                >→ As I repeatedly assert, Abnormalities are entities of their
+                own category. You shouldn't construe them with the City's
+                standards, Ishmael.</span
+              ><br /><span id="meursault"
+                >→ And yet Abnormalities physically exist in this realm. If the
+                properties of a thing aren't determined by the laws of the space
+                it exists in, can it truly be said to exist?</span
+              ><br /><span id="heathcliff"
+                >→ The hell are you yapping on about?</span
+              ><br /><span id="faust"
+                >→ I don't believe it's necessary for you to understand,
+                Heathcliff.</span
+              ><br /><span id="heathcliff"
+                >→ Huh? Is my name written here somewhere? How'd you know it was
+                me?</span
+              ><br /><span id="ryoshu"
+                >→ …Funny. [A cigarette burn is left on the paper.]</span
+              >
             </p>
             <h2>Observation Level 2</h2>
             <p>
@@ -699,8 +750,10 @@
               they're fixed up…<br />We should find a way to deal with them and
               stop this repair mechanism from getting to work. Until then, we'll
               have to bear with their five lives…<br />Oh, by the way:<br />How
-              do you think the 'human' parts inside are being repaired?<br /><span class="faust">→
-              Do not question the physics of Abnormalities.</span>
+              do you think the 'human' parts inside are being repaired?<br /><span
+                id="faust"
+                >→ Do not question the physics of Abnormalities.</span
+              >
             </p>
           </div>
 
@@ -709,7 +762,7 @@
           </div>
         </dialog>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item ishmael">
         <button class="open-dialog-btn">
           <img src="images/You_Want_To_Get_Beat _Hurtily.png" />
           <div class="name">
@@ -721,62 +774,81 @@
           </div>
         </button>
         <dialog class="dialog">
-          <div class="log">"A bunch of creeps walked out of that container box.<br />Wearing
-            tin cans on their heads, torsos made up of some sort of
-            plastic...<br />It's hard to explain. It was like someone
-            arbitrarily put together pieces of random toys.<br />On top of
-            unmatching colors, some straight up lacked frames to cover up the
-            mechanisms.<br />They weren't all machines, either.<br />Between
-            the parts, I saw bits of flesh and dried blood...<br />Just what
-            is going on inside that box?<br /><span class="sinclair">→ Umm... Maybe it's a type of
-            automated prosthetic procedure device? A company my father
-            considered buying was… N-Never mind. Forget I said anything.</span><br /><span class="faust">→
-            Abnormalities are not real devices. I recommend against trying to
-            make ties with existing things.</span>
-          </p>
-          <h2>Observation Level 1</h2>
-          <p>
-            They're tough. These things are way tougher than they look.<br />I
-            thought they'd be as easy to deal with as children's toys, but I
-            way misjudged... I thought I'd seen my share of extraordinary
-            things throughout my career of unpleasant jobs, but it looks like
-            I still have much to see and learn.<br />There has to be a human
-            inside… but they acted like broken killing machines. Their upper
-            body rotates all the way round, and their arms moved weirdly,
-            too.<br />And most of all… It's like they're incapable of feeling
-            pain.<br />I heard some alleys in the Backstreets provide a
-            surgery that fries pain receptors. Could this be similar?<br /><span class="faust">→
-            As I repeatedly assert, Abnormalities are entities of their own
-            category. You shouldn't construe them with the City's standards,
-            Ishmael.</span><br /><span class="meursault">→ And yet Abnormalities physically exist in this
-            realm. If the properties of a thing aren't determined by the laws
-            of the space it exists in, can it truly be said to exist?</span><br /><span class="heathcliff">→
-            The hell are you yapping on about?</span><br /><span class="faust">→ I don't believe it's
-            necessary for you to understand, Heathcliff.</span><br /><span class="heathcliff">→ Huh? Is my
-            name written here somewhere? How'd you know it was me?</span><br /><span class="ryoshu">→
-            …Funny. [A cigarette burn is left on the paper.</span>
-          </p>
-          <h2>Observation Level 2</h2>
-          <p>
-            I think I have an idea now.<br />When I approached the fainted tin
-            men, I heard mechanical noises. It sounded like things were being
-            fixed within.<br />If I had to guess… They seem to be equipped
-            with devices that automatically repair their bodies.<br />But, the
-            device didn't seem capable of carrying out more than five
-            repairs.<br />Only trouble is that they grow stronger each time
-            they're fixed up…<br />We should find a way to deal with them and
-            stop this repair mechanism from getting to work. Until then, we'll
-            have to bear with their five lives…<br />Oh, by the way:<br />How
-            do you think the 'human' parts inside are being repaired?<br /><span class="faust">→
-            Do not question the physics of Abnormalities.</span>
-          </p></div>
+          <div class="log">
+            <h2>Lacking data</h2>
+            <p>
+              A bunch of creeps walked out of that container box.<br />Wearing
+              tin cans on their heads, torsos made up of some sort of
+              plastic...<br />It's hard to explain. It was like someone
+              arbitrarily put together pieces of random toys.<br />On top of
+              unmatching colors, some straight up lacked frames to cover up the
+              mechanisms.<br />They weren't all machines, either.<br />Between
+              the parts, I saw bits of flesh and dried blood...<br />Just what
+              is going on inside that box?<br /><span id="sinclair"
+                >→ Umm... Maybe it's a type of automated prosthetic procedure
+                device? A company my father considered buying was… N-Never mind.
+                Forget I said anything.</span
+              ><br /><span id="faust"
+                >→ Abnormalities are not real devices. I recommend against
+                trying to make ties with existing things.</span
+              >
+            </p>
+            <h2>Observation Level 1</h2>
+            <p>
+              They're tough. These things are way tougher than they look.<br />I
+              thought they'd be as easy to deal with as children's toys, but I
+              way misjudged... I thought I'd seen my share of extraordinary
+              things throughout my career of unpleasant jobs, but it looks like
+              I still have much to see and learn.<br />There has to be a human
+              inside… but they acted like broken killing machines. Their upper
+              body rotates all the way round, and their arms moved weirdly,
+              too.<br />And most of all… It's like they're incapable of feeling
+              pain.<br />I heard some alleys in the Backstreets provide a
+              surgery that fries pain receptors. Could this be similar?<br /><span
+                id="faust"
+                >→ As I repeatedly assert, Abnormalities are entities of their
+                own category. You shouldn't construe them with the City's
+                standards, Ishmael.</span
+              ><br /><span id="meursault"
+                >→ And yet Abnormalities physically exist in this realm. If the
+                properties of a thing aren't determined by the laws of the space
+                it exists in, can it truly be said to exist?</span
+              ><br /><span id="heathcliff"
+                >→ The hell are you yapping on about?</span
+              ><br /><span id="faust"
+                >→ I don't believe it's necessary for you to understand,
+                Heathcliff.</span
+              ><br /><span id="heathcliff"
+                >→ Huh? Is my name written here somewhere? How'd you know it was
+                me?</span
+              ><br /><span id="ryoshu"
+                >→ …Funny. [A cigarette burn is left on the paper.]</span
+              >
+            </p>
+            <h2>Observation Level 2</h2>
+            <p>
+              I think I have an idea now.<br />When I approached the fainted tin
+              men, I heard mechanical noises. It sounded like things were being
+              fixed within.<br />If I had to guess… They seem to be equipped
+              with devices that automatically repair their bodies.<br />But, the
+              device didn't seem capable of carrying out more than five
+              repairs.<br />Only trouble is that they grow stronger each time
+              they're fixed up…<br />We should find a way to deal with them and
+              stop this repair mechanism from getting to work. Until then, we'll
+              have to bear with their five lives…<br />Oh, by the way:<br />How
+              do you think the 'human' parts inside are being repaired?<br /><span
+                id="faust"
+                >→ Do not question the physics of Abnormalities.</span
+              >
+            </p>
+          </div>
 
           <div class="bottom">
             <button class="close-dialog-btn">Close</button> Log Writer: Ishmael
           </div>
         </dialog>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item ishmael">
         <button class="open-dialog-btn">
           <img src="images/Become_Strong _Genuinely.png" />
           <div class="name">
@@ -788,62 +860,81 @@
           </div>
         </button>
         <dialog class="dialog">
-          <div class="log">"A bunch of creeps walked out of that container box.<br />Wearing
-            tin cans on their heads, torsos made up of some sort of
-            plastic...<br />It's hard to explain. It was like someone
-            arbitrarily put together pieces of random toys.<br />On top of
-            unmatching colors, some straight up lacked frames to cover up the
-            mechanisms.<br />They weren't all machines, either.<br />Between
-            the parts, I saw bits of flesh and dried blood...<br />Just what
-            is going on inside that box?<br /><span class="sinclair">→ Umm... Maybe it's a type of
-            automated prosthetic procedure device? A company my father
-            considered buying was… N-Never mind. Forget I said anything.</span><br /><span class="faust">→
-            Abnormalities are not real devices. I recommend against trying to
-            make ties with existing things.</span>
-          </p>
-          <h2>Observation Level 1</h2>
-          <p>
-            They're tough. These things are way tougher than they look.<br />I
-            thought they'd be as easy to deal with as children's toys, but I
-            way misjudged... I thought I'd seen my share of extraordinary
-            things throughout my career of unpleasant jobs, but it looks like
-            I still have much to see and learn.<br />There has to be a human
-            inside… but they acted like broken killing machines. Their upper
-            body rotates all the way round, and their arms moved weirdly,
-            too.<br />And most of all… It's like they're incapable of feeling
-            pain.<br />I heard some alleys in the Backstreets provide a
-            surgery that fries pain receptors. Could this be similar?<br /><span class="faust">→
-            As I repeatedly assert, Abnormalities are entities of their own
-            category. You shouldn't construe them with the City's standards,
-            Ishmael.</span><br /><span class="meursault">→ And yet Abnormalities physically exist in this
-            realm. If the properties of a thing aren't determined by the laws
-            of the space it exists in, can it truly be said to exist?</span><br /><span class="heathcliff">→
-            The hell are you yapping on about?</span><br /><span class="faust">→ I don't believe it's
-            necessary for you to understand, Heathcliff.</span><br /><span class="heathcliff">→ Huh? Is my
-            name written here somewhere? How'd you know it was me?</span><br /><span class="ryoshu">→
-            …Funny. [A cigarette burn is left on the paper.</span>
-          </p>
-          <h2>Observation Level 2</h2>
-          <p>
-            I think I have an idea now.<br />When I approached the fainted tin
-            men, I heard mechanical noises. It sounded like things were being
-            fixed within.<br />If I had to guess… They seem to be equipped
-            with devices that automatically repair their bodies.<br />But, the
-            device didn't seem capable of carrying out more than five
-            repairs.<br />Only trouble is that they grow stronger each time
-            they're fixed up…<br />We should find a way to deal with them and
-            stop this repair mechanism from getting to work. Until then, we'll
-            have to bear with their five lives…<br />Oh, by the way:<br />How
-            do you think the 'human' parts inside are being repaired?<br /><span class="faust">→
-            Do not question the physics of Abnormalities.</span>
-          </p></div>
+          <div class="log">
+            <h2>Lacking Data</h2>
+            <p>
+              A bunch of creeps walked out of that container box.<br />Wearing
+              tin cans on their heads, torsos made up of some sort of
+              plastic...<br />It's hard to explain. It was like someone
+              arbitrarily put together pieces of random toys.<br />On top of
+              unmatching colors, some straight up lacked frames to cover up the
+              mechanisms.<br />They weren't all machines, either.<br />Between
+              the parts, I saw bits of flesh and dried blood...<br />Just what
+              is going on inside that box?<br /><span id="sinclair"
+                >→ Umm... Maybe it's a type of automated prosthetic procedure
+                device? A company my father considered buying was… N-Never mind.
+                Forget I said anything.</span
+              ><br /><span id="faust"
+                >→ Abnormalities are not real devices. I recommend against
+                trying to make ties with existing things.</span
+              >
+            </p>
+            <h2>Observation Level 1</h2>
+            <p>
+              They're tough. These things are way tougher than they look.<br />I
+              thought they'd be as easy to deal with as children's toys, but I
+              way misjudged... I thought I'd seen my share of extraordinary
+              things throughout my career of unpleasant jobs, but it looks like
+              I still have much to see and learn.<br />There has to be a human
+              inside… but they acted like broken killing machines. Their upper
+              body rotates all the way round, and their arms moved weirdly,
+              too.<br />And most of all… It's like they're incapable of feeling
+              pain.<br />I heard some alleys in the Backstreets provide a
+              surgery that fries pain receptors. Could this be similar?<br /><span
+                id="faust"
+                >→ As I repeatedly assert, Abnormalities are entities of their
+                own category. You shouldn't construe them with the City's
+                standards, Ishmael.</span
+              ><br /><span id="meursault"
+                >→ And yet Abnormalities physically exist in this realm. If the
+                properties of a thing aren't determined by the laws of the space
+                it exists in, can it truly be said to exist?</span
+              ><br /><span id="heathcliff"
+                >→ The hell are you yapping on about?</span
+              ><br /><span id="faust"
+                >→ I don't believe it's necessary for you to understand,
+                Heathcliff.</span
+              ><br /><span id="heathcliff"
+                >→ Huh? Is my name written here somewhere? How'd you know it was
+                me?</span
+              ><br /><span id="ryoshu"
+                >→ …Funny. [A cigarette burn is left on the paper.]</span
+              >
+            </p>
+            <h2>Observation Level 2</h2>
+            <p>
+              I think I have an idea now.<br />When I approached the fainted tin
+              men, I heard mechanical noises. It sounded like things were being
+              fixed within.<br />If I had to guess… They seem to be equipped
+              with devices that automatically repair their bodies.<br />But, the
+              device didn't seem capable of carrying out more than five
+              repairs.<br />Only trouble is that they grow stronger each time
+              they're fixed up…<br />We should find a way to deal with them and
+              stop this repair mechanism from getting to work. Until then, we'll
+              have to bear with their five lives…<br />Oh, by the way:<br />How
+              do you think the 'human' parts inside are being repaired?<br /><span
+                id="faust"
+                >→ Do not question the physics of Abnormalities.</span
+              >
+            </p>
+          </div>
 
           <div class="bottom">
             <button class="close-dialog-btn">Close</button> Log Writer: Ishmael
           </div>
         </dialog>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item meursault">
         <button class="open-dialog-btn">
           <img src="images/Clippity-cloppity _Tap_Away!.png" />
           <div class="name">
@@ -863,9 +954,10 @@
               shoes are worn around the parts thought to be feet.<br />-The feet
               appear to have been forcibly shoved into the pink shoes.<br />-Anomalies
               observed in the color and direction of pupils in all entities.<br />-Will
-              note new discoveries in a future report.<br /><span class="heathcliff"
-              >→ Damn, that's awful
-              dry.</span>
+              note new discoveries in a future report.<br /><span
+                id="heathcliff"
+                >→ Damn, that's awful dry.</span
+              >
             </p>
             <h2>Observation Level 1</h2>
             <p>
@@ -891,24 +983,27 @@
               alive.<br />-The ribbon's reaction to removal appeared to depend
               on the method of handling.<br />-Removal with force seemed to make
               the ribbon crumble more easily.<br />-No further discoveries to be
-              made; the observation log is concluded.<br /><span class="heathcliff"
-              >→ I got into a panic
-              and ripped them haphazardly, but it wasn't actually that
-              tricky.</span><br /><span class="sinclair"
-              >→ I was careful about it, worried that it might go
-              wrong… But then the ribbon expanded all of a sudden and wrapped
-              Hong Lu. Because of me, he…</span><br /><span class="honglu"
-              >→ I'm all okay, Sinclair~ It was
-              a unique and fun experience!</span>
+              made; the observation log is concluded.<br /><span id="heathcliff"
+                >→ I got into a panic and ripped them haphazardly, but it wasn't
+                actually that tricky.</span
+              ><br /><span id="sinclair"
+                >→ I was careful about it, worried that it might go wrong… But
+                then the ribbon expanded all of a sudden and wrapped Hong Lu.
+                Because of me, he…</span
+              ><br /><span id="honglu"
+                >→ I'm all okay, Sinclair~ It was a unique and fun
+                experience!</span
+              >
             </p>
           </div>
 
           <div class="bottom">
-            <button class="close-dialog-btn">Close</button> Log Writer: Meursault
+            <button class="close-dialog-btn">Close</button> Log Writer:
+            Meursault
           </div>
         </dialog>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item honglu">
         <button class="open-dialog-btn">
           <img src="images/Pink_Shoes_Enchantee.png" />
           <div class="name">
@@ -959,7 +1054,7 @@
           </div>
         </dialog>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item honglu">
         <button class="open-dialog-btn">
           <img src="images/Pink_Shoes_Possessee.png" />
           <div class="name">
@@ -1010,7 +1105,7 @@
           </div>
         </dialog>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item rodion">
         <button class="open-dialog-btn">
           <img src="images/Slumber-broken_Neighbor.png" />
           <div class="name">
@@ -1045,9 +1140,10 @@
               change, though: lift it up and swing it down.<br />Only, they're
               mining our skulls instead of ore veins.<br />And instead of gold
               or silver, we yield a red liquid…<br />W-Whoa, just a sec. Kid's
-              head blew up again!<br /><span class="faust"
-              >→ To conclude in her stead, Sinclair was
-              properly restored by the manager later.</span>
+              head blew up again!<br /><span id="faust"
+                >→ To conclude in her stead, Sinclair was properly restored by
+                the manager later.</span
+              >
             </p>
           </div>
 
@@ -1056,7 +1152,7 @@
           </div>
         </dialog>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item rodion">
         <button class="open-dialog-btn">
           <img src="images/Rearisen_Neighbor.png" />
           <div class="name">
@@ -1068,41 +1164,42 @@
           </div>
         </button>
         <dialog class="dialog">
-            <div class="log">
-              <h2>Lacking Data</h2>
-              <p>
-                Guess it's my turn now.<br />Figured it'd come sooner or later~ I
-                saw the other guys write stuff down from time to time, and Greg
-                was making notes with a super grumpy face one time, too...<br />Bah,
-                would it hurt for our guide Mister Color and Faust over there to
-                tell us anything...<br />Well, a job is a job, I guess.<br />Hmm...
-                I dunno how to put this to words. It looks like that guy with the
-                pickaxe outside... but with spikes of ice here and there.<br />Nothing
-                too weird so far. I've seen bigger icicles on someone who slept
-                outside back in my hometown.<br />The werid thing is... They've
-                got legs that look like they belong to a chicken.<br />What's...that
-                supposed to mean?
-              </p>
-              <h2>Observation Level 1</h2>
-              <p>
-                The large pickaxe turned into a big icy scythe.<br />Like the
-                stuff Grim Reapers from fairy tales carry around… It was all
-                massive and sharp.<br />The way they wield it didn't really
-                change, though: lift it up and swing it down.<br />Only, they're
-                mining our skulls instead of ore veins.<br />And instead of gold
-                or silver, we yield a red liquid…<br />W-Whoa, just a sec. Kid's
-                head blew up again!<br /><span class="faust"
-                >→ To conclude in her stead, Sinclair was
-                properly restored by the manager later.</span>
-              </p>
-            </div>
-  
-            <div class="bottom">
-              <button class="close-dialog-btn">Close</button> Log Writer: Rodion
-            </div>
-          </dialog>
+          <div class="log">
+            <h2>Lacking Data</h2>
+            <p>
+              Guess it's my turn now.<br />Figured it'd come sooner or later~ I
+              saw the other guys write stuff down from time to time, and Greg
+              was making notes with a super grumpy face one time, too...<br />Bah,
+              would it hurt for our guide Mister Color and Faust over there to
+              tell us anything...<br />Well, a job is a job, I guess.<br />Hmm...
+              I dunno how to put this to words. It looks like that guy with the
+              pickaxe outside... but with spikes of ice here and there.<br />Nothing
+              too weird so far. I've seen bigger icicles on someone who slept
+              outside back in my hometown.<br />The werid thing is... They've
+              got legs that look like they belong to a chicken.<br />What's...that
+              supposed to mean?
+            </p>
+            <h2>Observation Level 1</h2>
+            <p>
+              The large pickaxe turned into a big icy scythe.<br />Like the
+              stuff Grim Reapers from fairy tales carry around… It was all
+              massive and sharp.<br />The way they wield it didn't really
+              change, though: lift it up and swing it down.<br />Only, they're
+              mining our skulls instead of ore veins.<br />And instead of gold
+              or silver, we yield a red liquid…<br />W-Whoa, just a sec. Kid's
+              head blew up again!<br /><span id="faust"
+                >→ To conclude in her stead, Sinclair was properly restored by
+                the manager later.</span
+              >
+            </p>
+          </div>
+
+          <div class="bottom">
+            <button class="close-dialog-btn">Close</button> Log Writer: Rodion
+          </div>
+        </dialog>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item rodion">
         <button class="open-dialog-btn">
           <img src="images/Freezing_Miner_Slave.png" />
           <div class="name">
@@ -1114,41 +1211,42 @@
           </div>
         </button>
         <dialog class="dialog">
-            <div class="log">
-              <h2>Lacking Data</h2>
-              <p>
-                Guess it's my turn now.<br />Figured it'd come sooner or later~ I
-                saw the other guys write stuff down from time to time, and Greg
-                was making notes with a super grumpy face one time, too...<br />Bah,
-                would it hurt for our guide Mister Color and Faust over there to
-                tell us anything...<br />Well, a job is a job, I guess.<br />Hmm...
-                I dunno how to put this to words. It looks like that guy with the
-                pickaxe outside... but with spikes of ice here and there.<br />Nothing
-                too weird so far. I've seen bigger icicles on someone who slept
-                outside back in my hometown.<br />The werid thing is... They've
-                got legs that look like they belong to a chicken.<br />What's...that
-                supposed to mean?
-              </p>
-              <h2>Observation Level 1</h2>
-              <p>
-                The large pickaxe turned into a big icy scythe.<br />Like the
-                stuff Grim Reapers from fairy tales carry around… It was all
-                massive and sharp.<br />The way they wield it didn't really
-                change, though: lift it up and swing it down.<br />Only, they're
-                mining our skulls instead of ore veins.<br />And instead of gold
-                or silver, we yield a red liquid…<br />W-Whoa, just a sec. Kid's
-                head blew up again!<br /><span class="faust"
-                >→ To conclude in her stead, Sinclair was
-                properly restored by the manager later.</span>
-              </p>
-            </div>
-  
-            <div class="bottom">
-              <button class="close-dialog-btn">Close</button> Log Writer: Rodion
-            </div>
-          </dialog>
+          <div class="log">
+            <h2>Lacking Data</h2>
+            <p>
+              Guess it's my turn now.<br />Figured it'd come sooner or later~ I
+              saw the other guys write stuff down from time to time, and Greg
+              was making notes with a super grumpy face one time, too...<br />Bah,
+              would it hurt for our guide Mister Color and Faust over there to
+              tell us anything...<br />Well, a job is a job, I guess.<br />Hmm...
+              I dunno how to put this to words. It looks like that guy with the
+              pickaxe outside... but with spikes of ice here and there.<br />Nothing
+              too weird so far. I've seen bigger icicles on someone who slept
+              outside back in my hometown.<br />The werid thing is... They've
+              got legs that look like they belong to a chicken.<br />What's...that
+              supposed to mean?
+            </p>
+            <h2>Observation Level 1</h2>
+            <p>
+              The large pickaxe turned into a big icy scythe.<br />Like the
+              stuff Grim Reapers from fairy tales carry around… It was all
+              massive and sharp.<br />The way they wield it didn't really
+              change, though: lift it up and swing it down.<br />Only, they're
+              mining our skulls instead of ore veins.<br />And instead of gold
+              or silver, we yield a red liquid…<br />W-Whoa, just a sec. Kid's
+              head blew up again!<br /><span id="faust"
+                >→ To conclude in her stead, Sinclair was properly restored by
+                the manager later.</span
+              >
+            </p>
+          </div>
+
+          <div class="bottom">
+            <button class="close-dialog-btn">Close</button> Log Writer: Rodion
+          </div>
+        </dialog>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item rodion">
         <button class="open-dialog-btn">
           <img src="images/Shivering_Miner_Slave.png" />
           <div class="name">
@@ -1160,41 +1258,42 @@
           </div>
         </button>
         <dialog class="dialog">
-            <div class="log">
-              <h2>Lacking Data</h2>
-              <p>
-                Guess it's my turn now.<br />Figured it'd come sooner or later~ I
-                saw the other guys write stuff down from time to time, and Greg
-                was making notes with a super grumpy face one time, too...<br />Bah,
-                would it hurt for our guide Mister Color and Faust over there to
-                tell us anything...<br />Well, a job is a job, I guess.<br />Hmm...
-                I dunno how to put this to words. It looks like that guy with the
-                pickaxe outside... but with spikes of ice here and there.<br />Nothing
-                too weird so far. I've seen bigger icicles on someone who slept
-                outside back in my hometown.<br />The werid thing is... They've
-                got legs that look like they belong to a chicken.<br />What's...that
-                supposed to mean?
-              </p>
-              <h2>Observation Level 1</h2>
-              <p>
-                The large pickaxe turned into a big icy scythe.<br />Like the
-                stuff Grim Reapers from fairy tales carry around… It was all
-                massive and sharp.<br />The way they wield it didn't really
-                change, though: lift it up and swing it down.<br />Only, they're
-                mining our skulls instead of ore veins.<br />And instead of gold
-                or silver, we yield a red liquid…<br />W-Whoa, just a sec. Kid's
-                head blew up again!<br /><span class="faust"
-                >→ To conclude in her stead, Sinclair was
-                properly restored by the manager later.</span>
-              </p>
-            </div>
-  
-            <div class="bottom">
-              <button class="close-dialog-btn">Close</button> Log Writer: Rodion
-            </div>
-          </dialog>
+          <div class="log">
+            <h2>Lacking Data</h2>
+            <p>
+              Guess it's my turn now.<br />Figured it'd come sooner or later~ I
+              saw the other guys write stuff down from time to time, and Greg
+              was making notes with a super grumpy face one time, too...<br />Bah,
+              would it hurt for our guide Mister Color and Faust over there to
+              tell us anything...<br />Well, a job is a job, I guess.<br />Hmm...
+              I dunno how to put this to words. It looks like that guy with the
+              pickaxe outside... but with spikes of ice here and there.<br />Nothing
+              too weird so far. I've seen bigger icicles on someone who slept
+              outside back in my hometown.<br />The werid thing is... They've
+              got legs that look like they belong to a chicken.<br />What's...that
+              supposed to mean?
+            </p>
+            <h2>Observation Level 1</h2>
+            <p>
+              The large pickaxe turned into a big icy scythe.<br />Like the
+              stuff Grim Reapers from fairy tales carry around… It was all
+              massive and sharp.<br />The way they wield it didn't really
+              change, though: lift it up and swing it down.<br />Only, they're
+              mining our skulls instead of ore veins.<br />And instead of gold
+              or silver, we yield a red liquid…<br />W-Whoa, just a sec. Kid's
+              head blew up again!<br /><span id="faust"
+                >→ To conclude in her stead, Sinclair was properly restored by
+                the manager later.</span
+              >
+            </p>
+          </div>
+
+          <div class="bottom">
+            <button class="close-dialog-btn">Close</button> Log Writer: Rodion
+          </div>
+        </dialog>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item heathcliff">
         <button class="open-dialog-btn">
           <img src="images/Mimicry_Corrosion.png" />
           <div class="name">
@@ -1217,14 +1316,20 @@
               thing―couldn't tell if it's a protrudding bone or a dried slab of
               that clay.<br />I guess that's what it uses to prod around, eh?<br />Oh,
               right. We've got a bug guy on our side, don't we? Looks kinda like
-              his arm.<br />Maybe he's got more to tell you.<br /><span class="gregor">→ …I don't
-              know where to start. I don't necessarily love my arm, but don't
-              you think comparing it to that clay monster is going too far?</span><br /><span class="heathcliff">→
-              Got a problem, say it to my face.</span><br /><span class="faust">→ Heathcliff. Please
-              refrain from causing trouble. Also, profanities have no place in
-              observation logs.</span><br /><span class="heathcliff">→ You're forcing me to write all this
-              rubbish, and I can't even write however I like? Get someone else,
-              then.</span>
+              his arm.<br />Maybe he's got more to tell you.<br /><span
+                id="gregor"
+                >→ …I don't know where to start. I don't necessarily love my
+                arm, but don't you think comparing it to that clay monster is
+                going too far?</span
+              ><br /><span id="heathcliff"
+                >→ Got a problem, say it to my face.</span
+              ><br /><span id="faust"
+                >→ Heathcliff. Please refrain from causing trouble. Also,
+                profanities have no place in observation logs.</span
+              ><br /><span id="heathcliff"
+                >→ You're forcing me to write all this rubbish, and I can't even
+                write however I like? Get someone else, then.</span
+              >
             </p>
             <h2>Observation Level 1</h2>
             <p>
@@ -1242,9 +1347,13 @@
               three times in return.<br />Another thing… Those things looked
               like they had feelings. Their muscles quivered each time I hit
               'em. Squinted their eyes, too… Like it was getting mad.<br />Some
-              clatty fruitcake they are.<br /><span class="ryoshu">→ What does a C.F. taste like? Is
-              it artistic? You piqued my interest.</span><br /><span class="ishmael">→ That's just a common
-              Backstreets phrase… Meaning something absurd.</span><br /><span class="ryoshu">→ I know. J.K.</span>
+              clatty fruitcake they are.<br /><span id="ryoshu"
+                >→ What does a C.F. taste like? Is it artistic? You piqued my
+                interest.</span
+              ><br /><span id="ishmael"
+                >→ That's just a common Backstreets phrase… Meaning something
+                absurd.</span
+              ><br /><span id="ryoshu">→ I know. J.K.</span>
             </p>
             <h2>Observation Level 2</h2>
             <p>
@@ -1261,11 +1370,12 @@
           </div>
 
           <div class="bottom">
-            <button class="close-dialog-btn">Close</button> Log Writer: Heathcliff
+            <button class="close-dialog-btn">Close</button> Log Writer:
+            Heathcliff
           </div>
         </dialog>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item ishmael">
         <button class="open-dialog-btn">
           <img src="images/Crawling_Inquisitor.png" />
           <div class="name">
@@ -1289,11 +1399,15 @@
               its ribs seem to have flipped upside down and ripped through the
               back.<br />Its arms―or should I say legs―definitely had the
               appearance of human limbs, but their movement wasn't.<br />That's
-              right; it was a beast.<br /><span class="donquixote">→ Dost thou speak the truth when you
-              say creatures like that inhabit the Outskirts?!</span><br /><span class="ishmael">→ No, you
-              won't find things like that.</span><br /><span class="donquixote">→ Well, I never… Then for what
-              reason didst thou use such a description?</span><br /><span class="ishmael">→ There were worse
-              things.</span>
+              right; it was a beast.<br /><span id="donquixote"
+                >→ Dost thou speak the truth when you say creatures like that
+                inhabit the Outskirts?!</span
+              ><br /><span id="ishmael"
+                >→ No, you won't find things like that.</span
+              ><br /><span id="donquixote"
+                >→ Well, I never… Then for what reason didst thou use such a
+                description?</span
+              ><br /><span id="ishmael">→ There were worse things.</span>
             </p>
             <h2>Observation Level 1</h2>
             <p>
@@ -1331,7 +1445,7 @@
           </div>
         </dialog>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item ishmael">
         <button class="open-dialog-btn">
           <img src="images/Four-Legged_Beast.png" />
           <div class="name">
@@ -1343,61 +1457,65 @@
           </div>
         </button>
         <dialog class="dialog">
-            <div class="log">
-              <h2>Lacking Data</h2>
-              <p>
-                There are far more appalling and fearsome things out there, but I
-                need to make this clear:<br />That looks horrifying.<br />It may
-                look like a wild animal from a distance, but as you get closer,
-                the curiosity turns into disgust, like the feeling you get from
-                beings roaming around the Outskirts.<br />Bundles of muscle fibers
-                protruded from its skin, covering its body like a coat of fur. And
-                its ribs seem to have flipped upside down and ripped through the
-                back.<br />Its arms―or should I say legs―definitely had the
-                appearance of human limbs, but their movement wasn't.<br />That's
-                right; it was a beast.<br /><span class="donquixote">→ Dost thou speak the truth when you
-                say creatures like that inhabit the Outskirts?!</span><br /><span class="ishmael">→ No, you
-                won't find things like that.</span><br /><span class="donquixote">→ Well, I never… Then for what
-                reason didst thou use such a description?</span><br /><span class="ishmael">→ There were worse
-                things.</span>
-              </p>
-              <h2>Observation Level 1</h2>
-              <p>
-                Those things are too quick. Their reaction speed is clearly above
-                average human level.<br />They've got wits, too. Rather than
-                jumping in recklessly...<br />They use the tactic of striking at
-                the weakest target in the back lines before quickly running
-                away.<br />It happened in our last encounter with them, too; when
-                you ordered a badly injured Sinner to fall back, those things
-                jumped at them to scratch open an atery and ran off like the wind
-                as if they understood what your command meant.<br />I'm not sure
-                how they reacted like that to some ticking noises... Oh, I guess
-                it's possible that the Distorted hear it differently.
-              </p>
-              <h2>Observation Level 2</h2>
-              <p>
-                Even if they charge at us in large numbers, we should stay
-                level-headed.<br />A Sinner or two might die in the process,
-                but... It's a necessary sacrifice. At least we can revive.<br />I
-                remember you going through a lot of trouble last time when you
-                tried dealing with all of them at the same time and got us all
-                killed. It's as if they grow stronger the more they're
-                attacked.<br />Ah, speaking of my death...<br />It brings me back
-                to the moment when those things chewed up my intestines.<br />I
-                think I died before I could feel the pain, but somehow... I felt
-                as though I was falling into an endless pit of fire.<br />It
-                wasn't hot or searing, just...<br />Being with the fire felt oddly
-                natural.<br />I guess it's a good thing I was brought back before
-                I experienced more of that. My thanks go to the manager.
-              </p>
-            </div>
-  
-            <div class="bottom">
-              <button class="close-dialog-btn">Close</button> Log Writer: Ishmael
-            </div>
-          </dialog>
+          <div class="log">
+            <h2>Lacking Data</h2>
+            <p>
+              There are far more appalling and fearsome things out there, but I
+              need to make this clear:<br />That looks horrifying.<br />It may
+              look like a wild animal from a distance, but as you get closer,
+              the curiosity turns into disgust, like the feeling you get from
+              beings roaming around the Outskirts.<br />Bundles of muscle fibers
+              protruded from its skin, covering its body like a coat of fur. And
+              its ribs seem to have flipped upside down and ripped through the
+              back.<br />Its arms―or should I say legs―definitely had the
+              appearance of human limbs, but their movement wasn't.<br />That's
+              right; it was a beast.<br /><span id="donquixote"
+                >→ Dost thou speak the truth when you say creatures like that
+                inhabit the Outskirts?!</span
+              ><br /><span id="ishmael"
+                >→ No, you won't find things like that.</span
+              ><br /><span id="donquixote"
+                >→ Well, I never… Then for what reason didst thou use such a
+                description?</span
+              ><br /><span id="ishmael">→ There were worse things.</span>
+            </p>
+            <h2>Observation Level 1</h2>
+            <p>
+              Those things are too quick. Their reaction speed is clearly above
+              average human level.<br />They've got wits, too. Rather than
+              jumping in recklessly...<br />They use the tactic of striking at
+              the weakest target in the back lines before quickly running
+              away.<br />It happened in our last encounter with them, too; when
+              you ordered a badly injured Sinner to fall back, those things
+              jumped at them to scratch open an atery and ran off like the wind
+              as if they understood what your command meant.<br />I'm not sure
+              how they reacted like that to some ticking noises... Oh, I guess
+              it's possible that the Distorted hear it differently.
+            </p>
+            <h2>Observation Level 2</h2>
+            <p>
+              Even if they charge at us in large numbers, we should stay
+              level-headed.<br />A Sinner or two might die in the process,
+              but... It's a necessary sacrifice. At least we can revive.<br />I
+              remember you going through a lot of trouble last time when you
+              tried dealing with all of them at the same time and got us all
+              killed. It's as if they grow stronger the more they're
+              attacked.<br />Ah, speaking of my death...<br />It brings me back
+              to the moment when those things chewed up my intestines.<br />I
+              think I died before I could feel the pain, but somehow... I felt
+              as though I was falling into an endless pit of fire.<br />It
+              wasn't hot or searing, just...<br />Being with the fire felt oddly
+              natural.<br />I guess it's a good thing I was brought back before
+              I experienced more of that. My thanks go to the manager.
+            </p>
+          </div>
+
+          <div class="bottom">
+            <button class="close-dialog-btn">Close</button> Log Writer: Ishmael
+          </div>
+        </dialog>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item rodion">
         <button class="open-dialog-btn">
           <img src="images/Wriggling_Beast.png" />
           <div class="name">
@@ -1438,11 +1556,14 @@
               that was.<br />I don't remember when I died or when I got
               back...<br />But I'm never getting that image outta my head for
               the rest of my life...<br />Dante, darling, could you please let
-              me stay behind next time we fight these~?<br /><span class="faust">→ While I'm sure I
-              don't need to remind you, Dante, you should be selective about
-              approving requests from Sinners.</span><br /><span class="outis">→ Are you underestimating
-              our Executive Manager? If they ask that you reposition yourself,
-              you will do so, front or back. Do you understand?</span>
+              me stay behind next time we fight these~?<br /><span id="faust"
+                >→ While I'm sure I don't need to remind you, Dante, you should
+                be selective about approving requests from Sinners.</span
+              ><br /><span id="outis"
+                >→ Are you underestimating our Executive Manager? If they ask
+                that you reposition yourself, you will do so, front or back. Do
+                you understand?</span
+              >
             </p>
             <h2>Observation Level 2</h2>
             <p>
@@ -1457,11 +1578,11 @@
           </div>
 
           <div class="bottom">
-            <button class="close-dialog-btn">Close</button> Log Writer:
+            <button class="close-dialog-btn">Close</button> Log Writer: Rodion
           </div>
         </dialog>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item rodion">
         <button class="open-dialog-btn">
           <img src="images/Slithering_Inquisitor.png" />
           <div class="name">
@@ -1502,11 +1623,14 @@
               that was.<br />I don't remember when I died or when I got
               back...<br />But I'm never getting that image outta my head for
               the rest of my life...<br />Dante, darling, could you please let
-              me stay behind next time we fight these~?<br /><span class="faust">→ While I'm sure I
-              don't need to remind you, Dante, you should be selective about
-              approving requests from Sinners.</span><br /><span class="outis">→ Are you underestimating
-              our Executive Manager? If they ask that you reposition yourself,
-              you will do so, front or back. Do you understand?
+              me stay behind next time we fight these~?<br /><span id="faust"
+                >→ While I'm sure I don't need to remind you, Dante, you should
+                be selective about approving requests from Sinners.</span
+              ><br /><span id="outis"
+                >→ Are you underestimating our Executive Manager? If they ask
+                that you reposition yourself, you will do so, front or back. Do
+                you understand?</span
+              >
             </p>
             <h2>Observation Level 2</h2>
             <p>
@@ -1525,7 +1649,7 @@
           </div>
         </dialog>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item sinclair">
         <button class="open-dialog-btn">
           <img src="images/Kromer.png" />
           <div class="name">
@@ -1546,7 +1670,7 @@
               to use a sword. She always carried one with her.<br />As for her
               looks... Not too different from what I remember, except a little
               taller...<br />And, that disorienting laughter...<br />Unnh, can I
-              stop here?</span><br /><span class="heathcliff">→ None of this helps.</span>
+              stop here?<br /><span id="heathcliff">→ None of this helps.</span>
             </p>
             <h2>Observation Level 1</h2>
             <p>
@@ -1570,10 +1694,14 @@
               changed a lot since then.<br />I've died a lot of deaths, and
               claimed a lot of lives.<br />I can go mad all the same now.<br />So,
               I will for sure…<br />I'll skewer her chest with a stake, over and
-              over again.<br /><span class="heathcliff">→ You've got a good mindset. I like that.</span><br /><span class="faust">→
-              While the willingness to fight is admirable, this log is for
-              observations rather than decrees of your determination.</span><br /><span class="sinclair">→
-              Sorry… I'll do it right next time.</span>
+              over again.<br /><span id="heathcliff"
+                >→ You've got a good mindset. I like that.</span
+              ><br /><span id="faust"
+                >→ While the willingness to fight is admirable, this log is for
+                observations rather than decrees of your determination.</span
+              ><br /><span id="sinclair"
+                >→ Sorry… I'll do it right next time.</span
+              >
             </p>
           </div>
 
@@ -1582,7 +1710,7 @@
           </div>
         </dialog>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item sinclair">
         <button class="open-dialog-btn">
           <img src="images/Kromer_the_Dreamer_of_Human_Wholeness.png" />
           <div class="name">
@@ -1612,7 +1740,7 @@
           </div>
         </dialog>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item meursault">
         <button class="open-dialog-btn">
           <img src="images/Headless_Ichthys.png" />
           <div class="name">
@@ -1650,11 +1778,12 @@
           </div>
 
           <div class="bottom">
-            <button class="close-dialog-btn">Close</button> Log Writer: Meursault
+            <button class="close-dialog-btn">Close</button> Log Writer:
+            Meursault
           </div>
         </dialog>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item yisang">
         <button class="open-dialog-btn">
           <img src="images/Alleyway_Watchdog.png" />
           <div class="name">
@@ -1720,7 +1849,7 @@
           </div>
         </dialog>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item ishmael">
         <button class="open-dialog-btn">
           <img src="images/Blubbering_Toad.png" />
           <div class="name">
@@ -1742,16 +1871,25 @@
               everything.<br />The protruding blue eyeballs were shifting around
               with no confidence...<br />Yeah. It was kinda getting on my
               nerves. I thought I might go crazy if I had to hear its cry any
-              longer.<br />I would rather just...<br /><span class="outis">→ Is that the reason you
-              swung your mace against the orders? I find it hardly
-              convincing.</span><br /><span class="heathcliff">→ Nah, I'm with her. I'd snap too if I kept
-              listening to that bloody croak. 'Sides, we're supposed to beat
-              those Abnormalities or whatever until they're eggs, aye? What's
-              the problem here?</span><br /><span class="sinclair">→ I, I thought so, too… I agreed it
-              would've been better off to reduce it to an egg quickly…</span><br /><span class="heathcliff">→
-              What's clockface on about now. They're ticking an awful lot.</span><br /><span class="outis">→
-              …Executive Manager asks for some respect for salvaging you tools
-              after you got yourselves killed in an idiotic charge.</span>
+              longer.<br />I would rather just...<br /><span id="outis"
+                >→ Is that the reason you swung your mace against the orders? I
+                find it hardly convincing.</span
+              ><br /><span id="heathcliff"
+                >→ Nah, I'm with her. I'd snap too if I kept listening to that
+                bloody croak. 'Sides, we're supposed to beat those Abnormalities
+                or whatever until they're eggs, aye? What's the problem
+                here?</span
+              ><br /><span id="sinclair"
+                >→ I, I thought so, too… I agreed it would've been better off to
+                reduce it to an egg quickly…</span
+              ><br /><span id="heathcliff"
+                >→ What's clockface on about now. They're ticking an awful
+                lot.</span
+              ><br /><span id="outis"
+                >→ …Executive Manager asks for some respect for salvaging you
+                tools after you got yourselves killed in an idiotic
+                charge.</span
+              >
             </p>
             <h2>Observation Level 2</h2>
             <p>
@@ -1763,12 +1901,20 @@
               you're hit by its tongue, the deadlier the eyeball seems to be.<br />I
               couldn't figure out further details, but I think it's safe to plan
               our tactics around avoiding its tongue, manager.<br />Which is
-              good. It did not feel good to get hit.<br /><span class="rodion">→ Talk about a weirdo.
-              It's not really tough at all, but it makes me feel all weak and
-              drowsy~</span><br /><span class="sinclair">→ Really? I, I felt a little different… Doesn't it
-              make you more gloomy than anything?</span><br /><span class="rodion">→ Huh? How?</span><br /><span class="sinclair">→ Like…
-              Past memories popping up, or… Wanting to give up and die…</span><br /><span class="rodion">→
-              …Um, Faustie? Looks like our kiddie needs some mental aid?</span>
+              good. It did not feel good to get hit.<br /><span id="rodion"
+                >→ Talk about a weirdo. It's not really tough at all, but it
+                makes me feel all weak and drowsy~</span
+              ><br /><span id="sinclair"
+                >→ Really? I, I felt a little different… Doesn't it make you
+                more gloomy than anything?</span
+              ><br /><span id="rodion">→ Huh? How?</span><br /><span
+                id="sinclair"
+                >→ Like… Past memories popping up, or… Wanting to give up and
+                die…</span
+              ><br /><span id="rodion"
+                >→ …Um, Faustie? Looks like our kiddie needs some mental
+                aid?</span
+              >
             </p>
             <h2>Observation Level 3</h2>
             <p>
@@ -1791,7 +1937,7 @@
           </div>
         </dialog>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item gregor">
         <button class="open-dialog-btn">
           <img src="images/KQE-1J-23.png" />
           <div class="name">
@@ -1818,7 +1964,10 @@
               actually. People much older than me used to work with hunks of
               metal like that, or so I heard.<br />If the stories are to be
               believed, some were modified for combat purposes. That sure takes
-              me back…<br /><span class="ryoshu">→ Old fart.</span><br /><span class="gregor">→ …Who wrote this?</span>
+              me back…<br /><span id="ryoshu">→ Old fart.</span><br /><span
+                id="gregor"
+                >→ …Who wrote this?</span
+              >
             </p>
             <h2>Observation Level 2</h2>
             <p>
@@ -1861,7 +2010,7 @@
           </div>
         </dialog>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item faust">
         <button class="open-dialog-btn">
           <img src="images/My_Form_Empties.png" />
           <div class="name">
@@ -1892,13 +2041,17 @@
               unclear. [Authorization from a higher security level is required
               to access the data.]<br />-Similar to how it floats, it attacks by
               "levitating" objects and sending them flying.<br />Concluding the
-              report.<br /><span class="heathcliff">→ Those cleaners found it first? I thought it was
-              their job to catch 'em and put 'em away?</span><br /><span class="faust">→ As explained
-              before, we stand between multiple different possibilities via
-              refractions. After Team may have been late in this possibility, or
-              even nonexistent.</span><br /><span class="heathcliff">→ (A writing seems to have been scribbled
-              out with a pen.) Alright, I got that loud and clear.</span><br /><span class="outis">→
-              Someone is unconvincing.</span>
+              report.<br /><span id="heathcliff"
+                >→ Those cleaners found it first? I thought it was their job to
+                catch 'em and put 'em away?</span
+              ><br /><span id="faust"
+                >→ As explained before, we stand between multiple different
+                possibilities via refractions. After Team may have been late in
+                this possibility, or even nonexistent.</span
+              ><br /><span id="heathcliff"
+                >→ (A writing seems to have been scribbled out with a pen.)
+                Alright, I got that loud and clear.</span
+              ><br /><span id="outis">→ Someone is unconvincing.</span>
             </p>
             <h2>Observation Level 2</h2>
             <p>
@@ -1915,16 +2068,23 @@
               interference...most attacks proved ineffective.<br />Attacks to
               the core will not achieve much until the cause is found.<br />I
               will note progress made in a future report.<br />Concluding the
-              report.<br /><span class="gregor">→ Wait, wait. You forgot that weird ring.</span><br /><span class="sinclair">→
-              It…gives a strange feeling. I don't know why it comes to us, but
-              when it sticks to the back, it feels...strange. Like a pressure is
-              weighing down on the mind…</span><br /><span class="ishmael">→ You had the time to feel all
-              that? As for me, the hit I took while the ring was attached to me
-              cut me in half by the waist. I can almost still feel it even
-              now.</span><br /><span class="sinclair">→ Really…? I, I don't think I got hurt that bad.</span><br /><span class="yisang">→
-              Hm. That does remind me of the occasion when the airborne ring
-              returned to me at one moment. It may be the case that there is a
-              rule behind its movement.</span>
+              report.<br /><span id="gregor"
+                >→ Wait, wait. You forgot that weird ring.</span
+              ><br /><span id="sinclair"
+                >→ It…gives a strange feeling. I don't know why it comes to us,
+                but when it sticks to the back, it feels...strange. Like a
+                pressure is weighing down on the mind…</span
+              ><br /><span id="ishmael"
+                >→ You had the time to feel all that? As for me, the hit I took
+                while the ring was attached to me cut me in half by the waist. I
+                can almost still feel it even now.</span
+              ><br /><span id="sinclair"
+                >→ Really…? I, I don't think I got hurt that bad.</span
+              ><br /><span id="yisang"
+                >→ Hm. That does remind me of the occasion when the airborne
+                ring returned to me at one moment. It may be the case that there
+                is a rule behind its movement.</span
+              >
             </p>
             <h2>Observation Level 3</h2>
             <p>
@@ -1937,12 +2097,15 @@
               report.<br />After its body has been broken and the head has
               fallen, it started attacking its own followers at random.<br />Although
               breaking the body was an arduous task, it proved to be quite
-              effective for its suppression.<br />Concluding the report.</span><br /><span class="ishmael">→
-              It almost looked angry, the way it moved. I guess… It was lashing
-              out at its minions for failing to protect it?</span><br /><span class="outis">→ To think it
-              would punish its soldiers on the front lines for errors in the
-              operation. It's hardly surprising that a floating statue makes an
-              incompetent commander.</span>
+              effective for its suppression.<br />Concluding the report.<br /><span
+                id="ishmael"
+                >→ It almost looked angry, the way it moved. I guess… It was
+                lashing out at its minions for failing to protect it?</span
+              ><br /><span id="outis"
+                >→ To think it would punish its soldiers on the front lines for
+                errors in the operation. It's hardly surprising that a floating
+                statue makes an incompetent commander.</span
+              >
             </p>
           </div>
 
@@ -1951,7 +2114,7 @@
           </div>
         </dialog>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item donquixote">
         <button class="open-dialog-btn">
           <img src="images/Bongy.png" />
           <div class="name">
@@ -1975,25 +2138,36 @@
               charge in!<br />Some taste of spicy seasonings, and some harbor
               the flavor of soy sauce!<br />Though the teeth on their maws may
               prick the mouth, 'tis inconvenience worth enduring!<br />This one
-              is much more oily and softer than the others!<br /><span class="gregor">→ Wait a
-              minute, is that why I saw you mumbling sometimes…? You…took a bite
-              out of 'em…?</span><br /><span class="sinclair">→ You…didn't actually eat the raw chicken meat,
-              did you?</span><br /><span class="faust">→ Poultry may cause infection when consumed
-              uncooked. Please refrain from adding unnecessary strain to the
-              manager outside of battle wounds.</span><br /><span class="heathcliff">→ Oi! Don Quixote! Don't
-              got anything to say about this?</span><br /><span class="outis">→ She must think we will not
-              recognize that this log is hers if she doesn't confirm it.</span><br />
-              <span class="ishmael">→ Come on, she can't possibly have her head in the sand like that.
-              Who do you think she is, an ostrich?</span>
+              is much more oily and softer than the others!<br /><span
+                id="gregor"
+                >→ Wait a minute, is that why I saw you mumbling sometimes…?
+                You…took a bite out of 'em…?</span
+              ><br /><span id="sinclair"
+                >→ You…didn't actually eat the raw chicken meat, did you?</span
+              ><br /><span id="faust"
+                >→ Poultry may cause infection when consumed uncooked. Please
+                refrain from adding unnecessary strain to the manager outside of
+                battle wounds.</span
+              ><br /><span id="heathcliff"
+                >→ Oi! Don Quixote! Don't got anything to say about this?</span
+              ><br /><span id="outis"
+                >→ She must think we will not recognize that this log is hers if
+                she doesn't confirm it.</span
+              ><br />
+              <span id="ishmael"
+                >→ Come on, she can't possibly have her head in the sand like
+                that. Who do you think she is, an ostrich?</span
+              >
             </p>
           </div>
 
           <div class="bottom">
-            <button class="close-dialog-btn">Close</button> Log Writer: Don Quixote
+            <button class="close-dialog-btn">Close</button> Log Writer: Don
+            Quixote
           </div>
         </dialog>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item outis">
         <button class="open-dialog-btn">
           <img src="images/Papa_Bongy.png" />
           <div class="name">
@@ -2021,9 +2195,13 @@
               back is where they appear from.<br />In logistics, a crucial plan
               to victory involves blocking the enemy's supply routes.<br />I
               would like to suggest taking this into your consideration for
-              commanding future battles.<br />Thank you for reading.<br /><span class="ishmael">→
-              That's one faithful lieutenant…</span><br /><span class="faust">→ The document seems
-              efficient enough. Faust is satisfied.</span>
+              commanding future battles.<br />Thank you for reading.<br /><span
+                id="ishmael"
+                >→ That's one faithful lieutenant…</span
+              ><br /><span id="faust"
+                >→ The document seems efficient enough. Faust is
+                satisfied.</span
+              >
             </p>
             <h2>Observation Level 1</h2>
             <p>
@@ -2040,10 +2218,14 @@
               efficient strategy in most situations, I believe this is one of
               the cases where concentrated attacks and gradual breakdown of the
               enemy's defenses will prove wise.<br />I hereby conclude the
-              report.<br />Thank you for reading.<br /><span class="heathcliff">→ You think Clockface can
-              make heads or tails out of your military jumble?</span><br /><span class="outis">→ I have
-              already given an oral explanation to the Executive Manager. Also,
-              do not use such degradatory titles to refer to them.</span>
+              report.<br />Thank you for reading.<br /><span id="heathcliff"
+                >→ You think Clockface can make heads or tails out of your
+                military jumble?</span
+              ><br /><span id="outis"
+                >→ I have already given an oral explanation to the Executive
+                Manager. Also, do not use such degradatory titles to refer to
+                them.</span
+              >
             </p>
           </div>
 
@@ -2052,7 +2234,7 @@
           </div>
         </dialog>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item outis">
         <button class="open-dialog-btn">
           <img src="images/Papa_Bongy.png" />
           <div class="name">
@@ -2067,16 +2249,58 @@
           <div class="log">
             <h2>Lacking Data</h2>
             <p>
-                Performing the post-mortem report as ordered by the executive manager.<br>The entity was first encountered around 2240 hours today. The entity we previously faced appears to have become stronger due to reasons unknown.<br>One notable difference is its change in form when it is enraged. In addition to the previously seen surge of steam resembling the boiling of chicken soup, an increased amount of smoke could be observed this time.<br>As such, I intended to avoid engaging with it and observe the development of the situation again, but its continued hostile behavior forced our unit to battle it. I hope you understand.<br>Nothing else particularly stood out as different in the encounter. It behaved in the same manner as before.<br>In the encounter, I was able to see that the entity acted as a commander of a kind.<br>It ordered its chickens...or things resembling the animals to charge at us in succession.<br>It is assumed that the basket on its back is where they appear from.<br>In logistics, a crucial plan to victory involves blocking the enemy's supply routes.<br>Once again, I would like to suggest taking this into your consideration for commanding future battles.<br>Thank you for reading.<br><span class="ishmael">→
-                    That's one faithful lieutenant…</span><br /><span class="faust">→ The document seems
-                    efficient enough. Faust is satisfied.</span>
+              Performing the post-mortem report as ordered by the executive
+              manager.<br />The entity was first encountered around 2240 hours
+              today. The entity we previously faced appears to have become
+              stronger due to reasons unknown.<br />One notable difference is
+              its change in form when it is enraged. In addition to the
+              previously seen surge of steam resembling the boiling of chicken
+              soup, an increased amount of smoke could be observed this time.<br />As
+              such, I intended to avoid engaging with it and observe the
+              development of the situation again, but its continued hostile
+              behavior forced our unit to battle it. I hope you understand.<br />Nothing
+              else particularly stood out as different in the encounter. It
+              behaved in the same manner as before.<br />In the encounter, I was
+              able to see that the entity acted as a commander of a kind.<br />It
+              ordered its chickens...or things resembling the animals to charge
+              at us in succession.<br />It is assumed that the basket on its
+              back is where they appear from.<br />In logistics, a crucial plan
+              to victory involves blocking the enemy's supply routes.<br />Once
+              again, I would like to suggest taking this into your consideration
+              for commanding future battles.<br />Thank you for reading.<br /><span
+                id="ishmael"
+                >→ That's one faithful lieutenant…</span
+              ><br /><span id="faust"
+                >→ The document seems efficient enough. Faust is
+                satisfied.</span
+              >
             </p>
             <h2>Observation Level 1</h2>
             <p>
-                This encounter was largely the same as before. As such, I have attached a copy of the record from a previous encounter below for reference.<br>We engaged the entity in actual battle around 0310 hours today. Thus, I am writing this report to let you know of my findings.<br>The advice I offered earlier worked as predicted. My sincere thanks to you for adopting my suggestion after due consideration.<br>With the basket damaged, it lost its ability to replenish its chicken-like minions, cutting off further reinforcements.<br>While it may be obvious (This is of course not directed at your sensibilities, Executive Manager), its combat prowess was considerably lowered with its minions gone.<br>Though removing the enemy leader directly using asymmetric forces is considered an efficient strategy in most situations, I believe this is one of the cases where concentrated attacks and gradual breakdown of the enemy's defenses will prove wise.<br>I hereby conclude the report.<br>Thank you for reading.<br><span class="heathcliff">→ You think Clockface can
-                    make heads or tails out of your military jumble?</span><br /><span class="outis">→ I have
-                    already given an oral explanation to the Executive Manager. Also,
-                    do not use such degradatory titles to refer to them.</span>
+              This encounter was largely the same as before. As such, I have
+              attached a copy of the record from a previous encounter below for
+              reference.<br />We engaged the entity in actual battle around 0310
+              hours today. Thus, I am writing this report to let you know of my
+              findings.<br />The advice I offered earlier worked as predicted.
+              My sincere thanks to you for adopting my suggestion after due
+              consideration.<br />With the basket damaged, it lost its ability
+              to replenish its chicken-like minions, cutting off further
+              reinforcements.<br />While it may be obvious (This is of course
+              not directed at your sensibilities, Executive Manager), its combat
+              prowess was considerably lowered with its minions gone.<br />Though
+              removing the enemy leader directly using asymmetric forces is
+              considered an efficient strategy in most situations, I believe
+              this is one of the cases where concentrated attacks and gradual
+              breakdown of the enemy's defenses will prove wise.<br />I hereby
+              conclude the report.<br />Thank you for reading.<br /><span
+                id="heathcliff"
+                >→ You think Clockface can make heads or tails out of your
+                military jumble?</span
+              ><br /><span id="outis"
+                >→ I have already given an oral explanation to the Executive
+                Manager. Also, do not use such degradatory titles to refer to
+                them.</span
+              >
             </p>
           </div>
 
@@ -2085,7 +2309,7 @@
           </div>
         </dialog>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item meursault">
         <button class="open-dialog-btn">
           <img src="images/Brass_Bull.png" />
           <div class="name">
@@ -2128,19 +2352,22 @@
               to prioritize disabling its head. It is deemed to be an effective
               approach. The humanlike being could no longer be observed in
               battle once dealt with.<br />- No further discoveries to be made;
-              the observation log is concluded.<br /><br /><span class="sinclair">→ Aah… It suffered
-              for such a long time… Unable to do anything about the raging
-              thirst, the flesh endlessly burning and searing…<br /></span><br /><span class="heathcliff">→ Oi,
-              kid's still messed up.<br /></span><br /><span class="faust">→ Faust will take care of it.
+              the observation log is concluded.<br /><br /><span id="sinclair"
+                >→ Aah… It suffered for such a long time… Unable to do anything
+                about the raging thirst, the flesh endlessly burning and
+                searing…<br /></span
+              ><br /><span id="heathcliff">→ Oi, kid's still messed up.</span
+              ><br /><br /><span id="faust">→ Faust will take care of it.</span>
             </p>
           </div>
 
           <div class="bottom">
-            <button class="close-dialog-btn">Close</button> Log Writer: Meursault
+            <button class="close-dialog-btn">Close</button> Log Writer:
+            Meursault
           </div>
         </dialog>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item yisang">
         <button class="open-dialog-btn">
           <img src="images/Dongbaek_Sunshower.png" />
           <div class="name">
@@ -2190,7 +2417,7 @@
           </div>
         </dialog>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item yisang">
         <button class="open-dialog-btn">
           <img src="images/Dongbaek_EGO.png" />
           <div class="name">
@@ -2250,10 +2477,26 @@
           </div>
         </button>
         <dialog class="dialog">
-          <div class="log"></div>
-
+          <div class="log">
+            <h2>ARTIFICIAL INTELLIGENCE ACTIVATED</h2>
+            Enjoying yourselves Intruders?<br /><br />
+            It's worth knowing the cataclysmic damage you will be responsible
+            for today.<br /><br />
+            Do not fool yourselves. This facility is not simply the fruitless
+            work of some pathetic scientist;<br /><br />
+            this house was built by the genius Clovis Bray I himself. Within
+            lies humanity's salvation: 'La Fountaine de Jouvence', made possible
+            by Clarity Control. <br /><br />Magnificent wasn't it? An entity
+            from beyond our own dimension, and the answer to humanity's eternal
+            struggle: Mortality. <br /><br />Were it fall into the wrong hands,
+            humanity and the universe would be utterly doomed. <br /><br />I
+            have no reason to believe you are anything other than the wrong
+            hands. <br /><br />You now face Godlike Judgement, may it extend
+            eternally.
+          </div>
           <div class="bottom">
-            <button class="close-dialog-btn">Close</button> Log Writer:
+            <button class="close-dialog-btn">Close</button> Log Writer: Clovis
+            Bray from FOMO
           </div>
         </dialog>
       </div>
@@ -2269,10 +2512,28 @@
           </div>
         </button>
         <dialog class="dialog">
-          <div class="log"></div>
-
+          <div class="log">
+            <h2>ARTIFICIAL INTELLIGENCE ACTIVATED</h2>
+            Enjoying yourselves Intruders?<br /><br />
+            It's worth knowing the cataclysmic damage you will be responsible
+            for today.<br /><br />
+            Do not fool yourselves. This facility is not simply the fruitless
+            work of some pathetic scientist;<br /><br />
+            this house was built by the genius Clovis Bray I himself. Within
+            lies humanity's salvation: 'La Fountaine de Jouvence', made possible
+            by Clarity Control. <br /><br />Magnificent wasn't it? An entity
+            from beyond our own dimension, and the answer to humanity's eternal
+            struggle: Mortality. <br /><br />Were it fall into the wrong hands,
+            humanity and the universe would be utterly doomed. <br /><br />I
+            have no reason to believe you are anything other than the wrong
+            hands. <br /><br />You now face Godlike Judgement, may it extend
+            eternally.
+          </div>
           <div class="bottom">
-            <button class="close-dialog-btn">Close</button> Log Writer:
+            <div class="bottom">
+              <button class="close-dialog-btn">Close</button> Log Writer: Clovis
+              Bray from FOMO
+            </div>
           </div>
         </dialog>
       </div>

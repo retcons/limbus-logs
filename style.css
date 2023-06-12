@@ -1,43 +1,78 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
-:root {
-  --Post-Columns: 3;
-  --Post-Columns-Spacing: 0px;
-  --Post-Rows-Spacing: 0px;
+/* Scrollbar CSS  */
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #996633 transparent;
 }
 
-/* ===== Scrollbar CSS ===== */
-  /* Firefox */
-  * {
-    scrollbar-width: thin;
-    scrollbar-color: #996633 transparent;
-  }
-
-  /* Chrome, Edge, and Safari */
-  *::-webkit-scrollbar {
-    width: 10px;
-  }
-
-  *::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  *::-webkit-scrollbar-thumb {
-    background-color: #996633;
-    border-radius: 0px;
-    border: 0px solid transparent;
-  }
-
-/* grid column spacing */
-[griddery-id=".gallery-item"] [griddery-col] + [griddery-col] {
-  padding-left: var(--Post-Columns-Spacing);
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 10px;
 }
 
-/* grid "row" spacing */
-[griddery-id=".gallery-item"] [griddery-item] + [griddery-item] {
-  margin-top: var(--Post-Rows-Spacing);
+*::-webkit-scrollbar-track {
+  background: transparent;
 }
 
+*::-webkit-scrollbar-thumb {
+  background-color: #996633;
+  border-radius: 0px;
+  border: 0px solid transparent;
+}
+
+/* sinner colors */
+
+#donquixote {
+  color: #ffef23;
+}
+
+#heathcliff {
+  color: #8360b1;
+}
+
+#ishmael {
+  color: #ff9500;
+}
+
+#gregor {
+  color: #a76936;
+}
+
+#faust {
+  color: #ffbfb4;
+}
+
+#sinclair {
+  color: #b4c452;
+}
+
+#ryoshu {
+  color: #e20000;
+}
+
+#honglu {
+  color: #5bffde;
+}
+
+#outis {
+  color: #4c8057;
+}
+
+#rodion {
+  color: #bb2727;
+}
+
+#yisang {
+  color: #d4dfe8;
+}
+
+#meursault {
+  color: #7487e2;
+}
+
+/* the rest */
 body {
   color: #ffe9cd;
   background-color: black;
@@ -46,26 +81,33 @@ body {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+/* gallery items */
 
 .gallery {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  width: 100%;
+  max-width: 1230px;
 }
 
 .gallery-item {
   display: inline-block;
-  margin: 10px;
+  margin: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
   max-width: 400px;
-  border: 1px solid #996633;
+  width: 100%;
+  box-sizing: border-box;
   background-color: #120804;
   color: #e3c290;
   transition: 0.125s;
+  flex-grow: 1;
 }
 
 .gallery-item:hover {
@@ -75,6 +117,8 @@ body {
 .gallery-item img {
   width: 100%;
 }
+
+/* dialogs */
 
 dialog {
   width: 60%;
@@ -94,6 +138,8 @@ dialog p {
 dialog::backdrop {
   background-color: #070602d8;
 }
+
+/* dialog buttons */
 
 .open-dialog-btn {
   width: 100%;
@@ -126,9 +172,34 @@ dialog::backdrop {
   color: #e3c290;
 }
 
+button {
+  background-color: #e3c290;
+  color: #341408;
+  border: 2px solid #996633;
+  padding: 2px 12px;
+  transition: 0.15s;
+  font-weight: bold;
+  font-size: 16px;
+  margin: 1.5px;
+}
+
+button:hover {
+  color: #ffe9cd;
+  border: 2px solid #ffd5ac;
+  background-color: #1208047e;
+}
+
+#filter-buttons button.active {
+  background-color: #663c2b7e;
+  color: #ffd57b;
+  border: 2px solid #ffd57b;
+}
+
+/* items */
+
 .log {
-    max-height: 80vh;
-    overflow-y: scroll;
+  max-height: 80vh;
+  overflow-y: scroll;
 }
 
 .name {
@@ -145,6 +216,7 @@ dialog::backdrop {
   margin: 0;
   width: 50%;
   line-height: 85%;
+  font-weight: normal;
 }
 
 .details {
@@ -162,6 +234,7 @@ dialog::backdrop {
   border: 1px solid #c0945e;
   color: #c0945e;
   width: 100%;
+  font-weight: normal;
 }
 
 .risk img {
@@ -174,6 +247,8 @@ dialog::backdrop {
   gap: 10px;
   align-items: baseline;
 }
+
+/* text */
 
 h2 {
   font-family: "Bebas Neue", sans-serif;
@@ -188,66 +263,27 @@ h1 {
 }
 
 sup {
-    font-style: italic;
-    color: #ffe9cd85;
+  font-style: italic;
+  color: #ffe9cd85;
 }
 
-.ishmael {
-  color:#ff9500;
-}
-
-.faust {
-  color: #ffbfb4;
-}
-
-.heathcliff {
-  color:#8360b1;
-}
-
-.rodion {
-  color:#bb2727;
-}
-
-.outis {
-  color: #4c8057;
-}
-
-.ryoshu {
-  color: #e20000;
-}
-
-.sinclair {
-  color:#b4c452;
-}
-
-.meursault {
-  color:#7487e2;
-}
-
-.honglu {
-  color: #5BFFDE;
-}
-
-.gregor {
-  color:#a76936;
-}
-
-.donquixote {
-  color:#FFEF23;
-}
-
-.yisang {
-  color: #d4dfe8;
+.filterhead {
+  font-size: 20px;
+  font-family: bebas neue;
+  background-color: #996633;
+  color: #ffe3b8;
+  display: inline-block;
+  margin: 0px;
+  text-align: left;
+  padding: 2px 16px 2px 8px;
+  clip-path: polygon(0px 0px, 85% 0px, 100% 100%, 0% 100%);
 }
 
 /* Media Queries */
 
 @media screen and (max-width: 768px) {
-  .gallery-item {
-    max-width: 100%;
-  }
-  :root {
-    --Post-Columns: 2;
+  #gallery .gallery-item {
+    width: 100%;
   }
 
   .id {
@@ -261,19 +297,22 @@ sup {
   .name p {
     font-size: 90%;
   }
+  button {
+    font-size: 14px;
+  }
+
+  .filterhead {
+    font-size: 16px;
+  }
 }
 
 @media screen and (max-width: 480px) {
-  .gallery-item {
-    margin: 5px;
+  #gallery .gallery-item {
+    width: 100%;
   }
 
   .open-dialog-btn {
     font-size: 24px;
-  }
-
-  :root {
-    --Post-Columns: 1;
   }
 
   .id {
