@@ -1,0 +1,49 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  place-content: center;
+}
+
+.list {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid transparent;
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 45px;
+  padding: 0 20px;
+
+  font-family: var(--font-bebas), sans-serif;
+  font-size: 1.25rem;
+  line-height: 1;
+  color: inherit;
+
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--accent);
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &[data-state='active'] {
+    border-bottom: 1px solid var(--border-hover);
+  }
+}
+
+.content {
+  flex-grow: 1;
+
+  padding: 1.25rem;
+
+  color: var(--fg-primary);
+  text-align: left;
+
+  outline: none;
+}

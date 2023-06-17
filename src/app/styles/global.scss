@@ -1,0 +1,126 @@
+@use './reset.scss';
+
+:root {
+  --accent: #963;
+  --fg-primary: #ffe9cd;
+  --fg-secondary: #e3c290;
+  --fg-tertiary: #c0945e;
+  --bg-primary: black;
+  --bg-secondary: #120804;
+  --border-hover: #ffd5ac;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  place-content: center;
+  place-items: center;
+
+  font-family: Arial, sans-serif;
+  color: var(--fg-primary);
+  text-align: center;
+
+  background-color: var(--bg-primary);
+}
+
+/* Scrollbar  */
+* {
+  /* Firefox */
+  scrollbar-color: var(--accent) transparent;
+  scrollbar-width: thin;
+
+  /* Chrome, Edge, and Safari */
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--accent);
+    border: 0 solid transparent;
+    border-radius: 0;
+  }
+}
+
+/* text */
+h1 {
+  margin-bottom: 1rem;
+  font-family: Impact, 'Arial Narrow Bold', Anton, Oswald, sans-serif;
+  font-weight: normal;
+}
+
+sup {
+  margin-bottom: 1rem;
+  font-style: italic;
+  color: #ffe9cd85;
+}
+
+p {
+  max-width: 65ch;
+  line-height: 1.5;
+}
+
+/* items */
+.log {
+  overflow-y: scroll;
+  max-height: 80vh;
+  white-space: pre;
+}
+
+.bottom {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+}
+
+/* Media Queries */
+@media screen and (width <= 768px) {
+  #gallery .abnormality {
+    width: 100%;
+  }
+
+  .id {
+    font-size: 1rem;
+  }
+
+  .risk img {
+    width: 100%;
+  }
+
+  .name p {
+    font-size: 90%;
+  }
+
+  button {
+    font-size: 14px;
+  }
+
+  .filterhead {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (width <= 480px) {
+  #gallery .abnormality {
+    width: 100%;
+  }
+
+  .open-dialog-btn {
+    font-size: 24px;
+  }
+
+  .id {
+    font-size: 24px;
+  }
+
+  .risk img {
+    width: 70%;
+  }
+
+  .name p {
+    font-size: 24px;
+  }
+}

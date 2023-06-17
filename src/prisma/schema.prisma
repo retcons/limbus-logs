@@ -1,0 +1,56 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model abnormality {
+  id      String     @id
+  name    String
+  image   String?
+  risk    risk_level @default(ZAYIN)
+  chapter Int?
+  desc    String?
+  logs    log[]
+}
+
+model sinner {
+  id       String    @id
+  name     String
+  comments comment[]
+  logs     log[]
+}
+
+model log {
+  id                String      @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  abnormality_id    String
+  observation_level Int         @default(0)
+  text              String
+  sinner_id         String
+  comments          comment[]
+  abnormality       abnormality @relation(fields: [abnormality_id], references: [id], onUpdate: NoAction)
+  sinner            sinner      @relation(fields: [sinner_id], references: [id], onUpdate: NoAction)
+}
+
+model comment {
+  id        String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  text      String
+  sinner_id String
+  log_id    String @db.Uuid
+  order     Int?   @default(0)
+  log       log    @relation(fields: [log_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  sinner    sinner @relation(fields: [sinner_id], references: [id], onUpdate: NoAction)
+
+  @@unique([sinner_id, log_id])
+}
+
+enum risk_level {
+  ZAYIN
+  TETH
+  HE
+  WAW
+  ALEPH
+}
