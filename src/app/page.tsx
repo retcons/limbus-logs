@@ -6,7 +6,7 @@ export default async function Home() {
   // Fetch all abnormalities, then its logs, then the logs' comments
   const abnormalities = await prisma.abnormality.findMany({
     include: {
-      logs: {
+      log: {
         orderBy: {
           observation_level: 'asc',
         },

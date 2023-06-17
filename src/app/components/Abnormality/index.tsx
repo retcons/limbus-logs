@@ -61,7 +61,7 @@ export default function Abnormality({
               <sup className={dialogStyles.description}>{abnormality.desc}</sup>
             )}
             <Log logs={abnormality.logs} />
-            <p>Written by {idToName(abnormality.logs[0].sinner_id)}</p>
+            <p>Written by {idToName(abnormality.log[0].sinner_id)}</p>
           </Dialog.Description>
           <Dialog.Close asChild>
             <button className={dialogStyles.close} aria-label='close modal'>
