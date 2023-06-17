@@ -73,8 +73,12 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+      - name: Generate Prisma client
+        run: ${{ steps.detect-package-manager.outputs.runner }} prisma generate
+        env: 
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
       - name: Build with Next.js
-        run: ${{ steps.detect-package-manager.outputs.runner }} prisma generate && next build
+        run: ${{ steps.detect-package-manager.outputs.runner }} next build
         env: 
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
       - name: Static HTML export with Next.js
