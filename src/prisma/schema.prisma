@@ -7,43 +7,50 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model abnormality {
-  name    String     @id
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model abnormalities {
   id      String
+  name    String     @id(map: "abnormality_pkey")
   image   String?
   risk    risk_level @default(ZAYIN)
   chapter Int?
   desc    String?
-  log     log[]
+  logs    logs[]
 }
 
-model sinner {
-  id       String    @id
-  name     String
-  comments comment[]
-  logs     log[]
-}
-
-model log {
-  id                String       @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  abnormality       abnormality? @relation(fields: [abnormality_name], references: [name], onDelete: NoAction, onUpdate: NoAction)
-  abnormality_name  String?
-  abnormality_id    String?
-  observation_level Int          @default(0)
-  text              String
-  sinner            sinner       @relation(fields: [sinner_id], references: [id], onUpdate: NoAction)
-  sinner_id         String
-  comments          comment[]
-}
-
-model comment {
-  id        String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model comments {
+  id        String  @id(map: "comment_pkey") @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   text      String
-  sinner    sinner @relation(fields: [sinner_id], references: [id], onUpdate: NoAction)
   sinner_id String
-  log       log    @relation(fields: [log_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  log_id    String @db.Uuid
-  order     Int?   @default(0)
+  log_id    String  @db.Uuid
+  order     Int?    @default(0)
+  logs      logs    @relation(fields: [log_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  sinners   sinners @relation(fields: [sinner_id], references: [id], onUpdate: NoAction)
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model logs {
+  id                String        @id(map: "log_pkey") @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  observation_level Int           @default(0)
+  text              String
+  sinner_id         String
+  abnormality_name  String
+  comments          comments[]
+  abnormalities     abnormalities @relation(fields: [abnormality_name], references: [name], onDelete: NoAction, onUpdate: NoAction)
+  sinners           sinners       @relation(fields: [sinner_id], references: [id], onUpdate: NoAction)
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model sinners {
+  id       String     @id(map: "sinner_pkey")
+  name     String
+  comments comments[]
+  logs     logs[]
 }
 
 enum risk_level {

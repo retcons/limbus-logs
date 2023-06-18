@@ -1,13 +1,13 @@
 import * as Tabs from '@radix-ui/react-tabs';
 import tabsStyles from './tabs.module.scss';
 import logStyles from './log.module.scss';
-import type { comment, log } from '@prisma/client';
+import type { logs as LogsTypes, comments as CommentsType } from '@prisma/client';
 
 export default function Log({
   logs,
 }: {
-  logs: (log & {
-    comments: comment[];
+  logs: (LogsTypes & {
+    comments: CommentsType[];
   })[];
 }) {
   const idToName = (id: string) => {
@@ -23,35 +23,39 @@ export default function Log({
       defaultValue={`${logs[0].observation_level}`}
     >
       <Tabs.List className={tabsStyles.list} aria-label='Manage your account'>
-        {logs?.map((log) => (
+        {logs?.map((entry) => (
           <Tabs.Trigger
             className={tabsStyles.trigger}
-            value={`${log.observation_level}`}
-            key={log.id}
+            value={`${entry.observation_level}`}
+            key={entry.id}
           >
-            {log.observation_level === 0
+            {entry.observation_level === 0
               ? 'Lacking data'
-              : `Observation Level ${log.observation_level}`}
+              : `Observation Level ${entry.observation_level}`}
           </Tabs.Trigger>
         ))}
       </Tabs.List>
-      {logs?.map((log) => (
+      {logs?.map((entry) => (
         <Tabs.Content
           className={tabsStyles.content}
-          value={`${log.observation_level}`}
-          key={log.id}
+          value={`${entry.observation_level}`}
+          key={entry.id}
         >
-          <p className={logStyles.text}>{log.text}</p>
-          {log.comments && (
+          <article className={logStyles.text}>
+            <p>{entry.text}</p>
+          </article>
+          {entry.comments.length !== 0 && (
             <aside className={logStyles.comments}>
-              {log.comments?.map((comment) => (
+              {entry.comments?.map((comment) => (
                 <p className={logStyles[comment.sinner_id]} key={comment.id}>
                   → {comment.text}
                 </p>
               ))}
             </aside>
           )}
-          <footer className={logStyles.footer}>Written by {idToName(log.sinner_id)}</footer>
+          <footer className={logStyles.footer}>
+            Written by {idToName(entry.sinner_id)}
+          </footer>
         </Tabs.Content>
       ))}
     </Tabs.Root>
