@@ -8,13 +8,13 @@
 /* gallery items */
 .gallery {
   display: grid;
-  padding: 1rem;
   grid-template-columns: repeat(3, 1fr);
   gap: 0.25rem;
   place-content: center;
 
   width: 100%;
   max-width: 1230px;
+  padding: 1rem;
 
   @media screen and (width <= 768px) {
     display: flex;
@@ -49,8 +49,11 @@
     display: flex;
     flex-flow: wrap row;
     gap: 0.25rem;
+    place-items: center;
 
     button {
+      justify-content: center;
+
       margin: 1.5px;
       padding: 2px 12px;
 

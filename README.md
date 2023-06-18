@@ -1,3 +1,5 @@
+
+# Things are currently being moved to a database for easier management! An archive of the logs can be found [here](https://web.archive.org/web/20230617022759/https://retcons.github.io/limbus-logs/)!
 # Limbus Company Observation Logs
 
 ### https://retcons.github.io/limbus-logs/

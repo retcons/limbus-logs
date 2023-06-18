@@ -41,12 +41,12 @@
   overflow-y: auto;
   flex-grow: 1;
 
+  max-height: 60vh;
+
   color: var(--fg-primary);
   text-align: left;
 
   outline: none;
-
-  max-height: 50vw;
 
   @media screen and (width <= 425px) {
     max-height: 600px;
