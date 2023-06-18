@@ -9,7 +9,7 @@ export default function HomeClient({
   abnormalities,
 }: {
   abnormalities: (abnormality & {
-    logs: (log & {
+    log: (log & {
       comments: comment[];
     })[];
   })[];
