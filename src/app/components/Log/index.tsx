@@ -54,10 +54,10 @@ export default function Log({
             </aside>
           )}
         </Tabs.Content>
-        <footer className={logStyles.footer}>
-        Written by {idToName(entry.sinner_id)}
-      </footer>
       ))}
+      <footer className={logStyles.footer}>
+            Written by {idToName(entry.sinner_id)}
+          </footer>
     </Tabs.Root>
   );
 }
