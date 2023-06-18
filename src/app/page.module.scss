@@ -8,12 +8,18 @@
 /* gallery items */
 .gallery {
   display: grid;
+  padding: 1rem;
   grid-template-columns: repeat(3, 1fr);
   gap: 0.25rem;
   place-content: center;
 
   width: 100%;
   max-width: 1230px;
+
+  @media screen and (width <= 768px) {
+    display: flex;
+    flex-flow: wrap column;
+  }
 }
 
 /* filter */

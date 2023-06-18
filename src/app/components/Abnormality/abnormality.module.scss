@@ -9,7 +9,6 @@
   width: 100%;
 
   font-family: var(--font-bebas), sans-serif;
-  font-size: 30px;
   color: var(--fg-primary);
 
   background-color: var(--bg-secondary);
@@ -19,6 +18,14 @@
 
   &:hover {
     background-color: #8f736888;
+  }
+
+  .image-container {
+    max-height: 300px;
+
+    img {
+      object-fit: scale-down;
+    }
   }
 
   .footer {
@@ -38,6 +45,11 @@
     flex-direction: row;
     gap: 1rem;
     align-items: center;
+
+    @media screen and (width <= 768px) {
+      flex-direction: column-reverse;
+      width: 100%;
+    }
 
     .wrapper {
       display: flex;
@@ -61,6 +73,14 @@
       .risk {
         max-width: 75%;
         image-rendering: crisp-edges;
+
+        @media screen and (width <= 768px) {
+          max-width: 50%;
+        }
+
+        @media screen and (width <= 480px) {
+          max-width: 33%;
+        }
       }
     }
 
@@ -71,6 +91,10 @@
       font-family: var(--font-bebas);
       font-size: 1.75rem;
       font-weight: normal;
+
+      @media screen and (width <= 480px) {
+        font-size: 1.5rem;
+      }
     }
   }
 }
