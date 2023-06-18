@@ -10,10 +10,20 @@ export default function Log({
     comments: comment[];
   })[];
 }) {
+  const idToName = (id: string) => {
+    return id
+      .split('_')
+      .map((word) => word.charAt(0).toUpperCase() + word.substring(1))
+      .join(' ');
+  };
+
   return (
-    <Tabs.Root className={tabsStyles.root} defaultValue='0'>
+    <Tabs.Root
+      className={tabsStyles.root}
+      defaultValue={`${logs[0].observation_level}`}
+    >
       <Tabs.List className={tabsStyles.list} aria-label='Manage your account'>
-        {logs.map((log) => (
+        {logs?.map((log) => (
           <Tabs.Trigger
             className={tabsStyles.trigger}
             value={`${log.observation_level}`}
@@ -25,7 +35,7 @@ export default function Log({
           </Tabs.Trigger>
         ))}
       </Tabs.List>
-      {logs.map((log) => (
+      {logs?.map((log) => (
         <Tabs.Content
           className={tabsStyles.content}
           value={`${log.observation_level}`}
@@ -34,13 +44,14 @@ export default function Log({
           <p className={logStyles.text}>{log.text}</p>
           {log.comments && (
             <aside className={logStyles.comments}>
-              {log.comments.map((comment) => (
+              {log.comments?.map((comment) => (
                 <p className={logStyles[comment.sinner_id]} key={comment.id}>
                   → {comment.text}
                 </p>
               ))}
             </aside>
           )}
+          <footer className={logStyles.footer}>Written by {idToName(log.sinner_id)}</footer>
         </Tabs.Content>
       ))}
     </Tabs.Root>

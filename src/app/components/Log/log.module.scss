@@ -1,7 +1,6 @@
 
 .text {
   margin-top: 0;
-
   line-height: 1.5;
   word-wrap: break-word;
   overflow-wrap: break-word;
@@ -12,6 +11,12 @@
 
 .comments {
   margin-top: 0.25rem;
+}
+
+.footer {
+  margin-top: 1rem;
+  color: var(--fg-secondary);
+  text-align: center;
 }
 
 /* sinner colors */

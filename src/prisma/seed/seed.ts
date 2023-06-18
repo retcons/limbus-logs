@@ -1,4 +1,4 @@
-import prisma from '@/prisma';
+import prisma from '../index';
 import sinners from './sinners.json';
 
 async function main() {

@@ -38,15 +38,17 @@
 }
 
 .content {
+  overflow-y: auto;
   flex-grow: 1;
-
-  padding: 1.25rem;
+  padding: 1.5rem;
+  max-height: 60vh;
 
   color: var(--fg-primary);
   text-align: left;
 
   outline: none;
 
-  overflow-y: scroll;
-  max-height: 60vh;
+  @media screen and (width <= 425px) {
+    max-height: 600px;
+  }
 }

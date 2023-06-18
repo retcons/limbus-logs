@@ -9,7 +9,7 @@ export default function HomeClient({
   abnormalities,
 }: {
   abnormalities: (abnormality & {
-    logs: (log & {
+    log: (log & {
       comments: comment[];
     })[];
   })[];
@@ -57,7 +57,7 @@ export default function HomeClient({
           .filter((abnormality) =>
             selectedSinner === 'all'
               ? true
-              : abnormality.logs[0].sinner_id === selectedSinner
+              : abnormality.log[0].sinner_id === selectedSinner
           )
           .map((abnormality) => {
             return (
