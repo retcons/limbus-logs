@@ -4,9 +4,9 @@ import HomeClient from './client';
 
 export default async function Home() {
   // Fetch all abnormalities, then its logs, then the logs' comments
-  const abnormalities = await prisma.abnormality.findMany({
+  const abnormalities = await prisma.abnormalities.findMany({
     include: {
-      log: {
+      logs: {
         orderBy: {
           observation_level: 'asc',
         },

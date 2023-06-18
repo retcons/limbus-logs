@@ -1,13 +1,13 @@
 import * as Tabs from '@radix-ui/react-tabs';
 import tabsStyles from './tabs.module.scss';
 import logStyles from './log.module.scss';
-import type { comment, log } from '@prisma/client';
+import type { logs as LogsTypes, comments as CommentsType } from '@prisma/client';
 
 export default function Log({
-  log,
+  logs,
 }: {
-  log: (log & {
-    comments: comment[];
+  logs: (LogsTypes & {
+    comments: CommentsType[];
   })[];
 }) {
   const idToName = (id: string) => {
@@ -20,10 +20,10 @@ export default function Log({
   return (
     <Tabs.Root
       className={tabsStyles.root}
-      defaultValue={`${log[0].observation_level}`}
+      defaultValue={`${logs[0].observation_level}`}
     >
       <Tabs.List className={tabsStyles.list} aria-label='Manage your account'>
-        {log?.map((entry) => (
+        {logs?.map((entry) => (
           <Tabs.Trigger
             className={tabsStyles.trigger}
             value={`${entry.observation_level}`}
@@ -35,14 +35,14 @@ export default function Log({
           </Tabs.Trigger>
         ))}
       </Tabs.List>
-      {log?.map((entry) => (
+      {logs?.map((entry) => (
         <Tabs.Content
           className={tabsStyles.content}
           value={`${entry.observation_level}`}
           key={entry.id}
         >
           <article className={logStyles.text}>
-              <p>{entry.text}</p>
+            <p>{entry.text}</p>
           </article>
           {entry.comments.length !== 0 && (
             <aside className={logStyles.comments}>

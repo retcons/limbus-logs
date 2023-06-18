@@ -4,19 +4,21 @@ import * as Dialog from '@radix-ui/react-dialog';
 import abnormalityStyles from './abnormality.module.scss';
 import dialogStyles from './dialog.module.scss';
 import Log from '../Log';
-import type { abnormality as AbnormalityType, comment as CommentType, log as LogType } from '@prisma/client';
+import type {
+  abnormalities as AbnormalitiesType,
+  logs as LogsType,
+  comments as CommentsType,
+} from '@prisma/client';
 
 export default function Abnormality({
   abnormality,
 }: {
-  abnormality: AbnormalityType & {
-    log: (LogType & {
-      comments: CommentType[];
+  abnormality: AbnormalitiesType & {
+    logs: (LogsType & {
+      comments: CommentsType[];
     })[];
   };
 }) {
-  console.log(abnormality.log);
-
   return (
     <Dialog.Root>
       <Dialog.Trigger asChild>
@@ -59,7 +61,7 @@ export default function Abnormality({
                   {abnormality.desc}
                 </sup>
               )}
-              <Log log={abnormality.log} />
+              <Log logs={abnormality.logs} />
             </Dialog.Description>
             <Dialog.Close asChild>
               <button className={dialogStyles.close} aria-label='close modal'>

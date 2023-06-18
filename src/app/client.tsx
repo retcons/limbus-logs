@@ -3,14 +3,14 @@ import { useState } from 'react';
 import * as ToggleGroup from '@radix-ui/react-toggle-group';
 import Abnormality from './components/Abnormality';
 import styles from './page.module.scss';
-import type { abnormality, log, comment } from '@prisma/client';
+import type { abnormalities as AbnormalitiesType, logs as LogsType, comments as CommentsType } from '@prisma/client';
 
 export default function HomeClient({
   abnormalities,
 }: {
-  abnormalities: (abnormality & {
-    log: (log & {
-      comments: comment[];
+  abnormalities: (AbnormalitiesType & {
+    logs: (LogsType & {
+      comments: CommentsType[];
     })[];
   })[];
 }) {
@@ -57,7 +57,7 @@ export default function HomeClient({
           .filter((abnormality) =>
             selectedSinner === 'all'
               ? true
-              : abnormality.log[0].sinner_id === selectedSinner
+              : abnormality.logs[0].sinner_id === selectedSinner
           )
           .map((abnormality) => {
             return (
