@@ -61,7 +61,7 @@ export default function HomeClient({
           )
           .map((abnormality) => {
             return (
-              <Abnormality abnormality={abnormality} key={abnormality.id} />
+              <Abnormality abnormality={abnormality} key={abnormality.name} />
             );
           })}
       </main>
