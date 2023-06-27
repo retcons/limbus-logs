@@ -50,6 +50,7 @@ export default function HomeClient({
           <ToggleGroup.Item value={'rodion'}>Rodion</ToggleGroup.Item>
           <ToggleGroup.Item value={'sinclair'}>Sinclair</ToggleGroup.Item>
           <ToggleGroup.Item value={'outis'}>Outis</ToggleGroup.Item>
+          <ToggleGroup.Item value={'gregor'}>Gregor</ToggleGroup.Item>
         </ToggleGroup.Root>
       </nav>
       <main className={styles.gallery}>

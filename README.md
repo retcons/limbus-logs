@@ -5,7 +5,7 @@ A collection for easy access to observation logs of enemies & abnormalities in L
 ## Changelog
 
 Latest Version: v1.21<br>
-Last Updated: June 22, 2023
+Last Updated: June 27, 2023
 
 <details>
 <summary>Update History</summary>
