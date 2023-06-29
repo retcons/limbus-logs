@@ -35,7 +35,7 @@ export default async function Home() {
           due to identical entries, but not all. Additional comments from other
           sinners will be color-coded accordingly.
         </span>
-        <sup>last updated: new mirror dungeon abnormality - june 28 2023</sup>
+        <sup>last updated: mirror dungeon 2 update - june 28 2023</sup>
       </header>
       {/*
        * Because of React adding server components
