@@ -5,12 +5,14 @@ A collection for easy access to observation logs of enemies & abnormalities in L
 ## Changelog
 
 Latest Version: v1.21<br>
-Last Updated: June 27, 2023
+Last Updated: June 28, 2023
 
 <details>
 <summary>Update History</summary>
 
 
+- v.1.22
+  - Added the new Mirror Dungeon Abnormality
 - v.1.21
   - Moved data to a database (thank you april!!!!!!!)
   - Color-coded comments for new logs
