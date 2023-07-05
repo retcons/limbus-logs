@@ -35,8 +35,7 @@ export default async function Home() {
           due to identical entries, but not all. Additional comments from other
           sinners will be color-coded accordingly.
         </span>
-        <sup style="margin-bottom:0;">Managed by <a href="https://github.com/retcons">jordan</a>, please direct any corrections, concerns, etc. to me.</sup>
-        <sup>last updated: mirror dungeon 2 update - june 28 2023</sup>
+        <sup>Managed by <a href="https://github.com/retcons">jordan</a>, please direct any corrections, concerns, etc. to me.<br>last updated: mirror dungeon 2 update - june 28 2023</sup>
       </header>
       {/*
        * Because of React adding server components
