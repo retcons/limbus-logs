@@ -36,7 +36,7 @@ export default async function Home() {
           sinners will be color-coded accordingly.
         </span>
         <sup>Managed by <a href="https://github.com/retcons">jordan</a>, please direct any corrections, concerns, etc. to me.
-        last updated: mirror dungeon 2 update - june 28 2023</sup>
+        last updated: refraction railway line 2 - september 14. NOTE: SOME COMMENTS ARE MISSING!! F-01-11-15 Level 2 as well as O-06-21-16 + O-04-21-22 are missing comments. i'll add them later i prommy okay?</sup>
       </header>
       {/*
        * Because of React adding server components
