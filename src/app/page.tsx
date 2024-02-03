@@ -36,7 +36,7 @@ export default async function Home() {
           sinners will be color-coded accordingly.
         </span>
         <sup>Managed by <a href="https://github.com/retcons">jordan</a>, please direct any corrections, concerns, etc. to me.
-        last updated: refraction railway 3 - february 3</sup>
+        last updated: canto v part 3 - december 1</sup>
       </header>
       {/*
        * Because of React adding server components
