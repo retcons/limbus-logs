@@ -15,6 +15,15 @@ export default function HomeClient({
   const [search, setSearch] = useState('');
   const [selectedSinner, setSelectedSinner] = useState('all');
 
+  const filteredAbnormalities = abnormalities
+    /* Filter down the abnormality list to match the search query AND if a sinner wrote a log for it */
+    .filter((abnormality) => {
+      return abnormality.name.toLowerCase().includes(search.toLowerCase()) &&
+        selectedSinner === 'all'
+        ? true
+        : abnormality.logs.some((log) => log.sinner_id === selectedSinner)
+    });
+
   return (
     <>
       <nav className={styles.filter}>
@@ -28,21 +37,17 @@ export default function HomeClient({
         </section>
       </nav>
       <main className={styles.gallery}>
-        {abnormalities
-          /* Filter down the abnormality list to match the search query AND if a sinner wrote a log for it */
-          .filter((abnormality) => {
-            return abnormality.name.toLowerCase().includes(search.toLowerCase()) &&
-              selectedSinner === 'all'
-              ? true
-              : abnormality.logs.some((log) => log.sinner_id === selectedSinner)
-          }
-          )
+        {filteredAbnormalities.length > 0 ? (abnormalities
           /* Return the abnormalities that meet this criteria with the Abnormality component */
           .map((abnormality) => {
             return (
               <Abnormality abnormality={abnormality} key={abnormality.name} />
             );
-          })}
+          }))
+          : (
+            // If no results are found, display a message
+            <span className={styles.noresult}>No results found for <strong >{search === '' ? 'anything' : search}</strong> by <strong>{selectedSinner}</strong> </span>
+          )}
       </main>
     </>
   );

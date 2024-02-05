@@ -16,6 +16,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 0.25rem;
   place-content: center;
+  justify-items: center;
 
   width: 100%;
   max-width: 1230px;
@@ -56,7 +57,7 @@
 .search {
   width: 100%;
   padding: 0.25rem;
-  
+
   color: var(--accent-secondary);
 
   background-color: var(--fg-secondary);
@@ -75,5 +76,16 @@
     background-color: var(--bg-tertiary);
     border: 2px solid var(--highlight);
     outline: none;
+  }
+}
+
+.noresult {
+  grid-column: span 3;
+  width: 100%;
+  font-size: 1.5rem;
+  text-align: center;
+
+  strong {
+    text-transform: capitalize;
   }
 }
