@@ -25,16 +25,18 @@ export default async function Home() {
     <>
       <header className={styles.intro}>
         <h1>Limbus Company Observation Log Library</h1>
-        <span>
+        <h2>
           <strong>SPOILERS AHEAD, PROCEED WITH CAUTION!</strong>
-        </span>
-        <span>
+        </h2>
+        <p>
           Collection of observation logs in Limbus Company. Some may be combined
           due to identical entries, but not all. Additional comments from other
           sinners will be color-coded accordingly.
-        </span>
-        <sup>Managed by <a href="https://github.com/retcons">jordan</a>, please direct any corrections, concerns, etc. to me.
-        last updated: canto v part 3 - december 1</sup>
+        </p>
+        <footer>
+          <sup>Managed by <a href="https://github.com/retcons">jordan</a>, please direct any corrections, concerns, etc. to me.
+            last updated: canto v part 3 - december 1</sup>
+        </footer>
       </header>
       {/*
        * Because of React adding server components
