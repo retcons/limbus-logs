@@ -29,6 +29,7 @@ export default function HomeClient({
       </nav>
       <main className={styles.gallery}>
         {abnormalities
+          /* Filter down the abnormality list to match the search query AND if a sinner wrote a log for it */
           .filter((abnormality) => {
             return abnormality.name.toLowerCase().includes(search.toLowerCase()) &&
               selectedSinner === 'all'
@@ -36,6 +37,7 @@ export default function HomeClient({
               : abnormality.logs.some((log) => log.sinner_id === selectedSinner)
           }
           )
+          /* Return the abnormalities that meet this criteria with the Abnormality component */
           .map((abnormality) => {
             return (
               <Abnormality abnormality={abnormality} key={abnormality.name} />

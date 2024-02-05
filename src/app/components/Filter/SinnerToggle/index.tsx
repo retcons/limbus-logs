@@ -34,6 +34,7 @@ export default function SinnerToggle({ selectedSinner, setSelectedSinner }: Prop
       <ToggleGroup.Item value={'heathcliff'}>Heathcliff</ToggleGroup.Item>
       <ToggleGroup.Item value={'ishmael'}>Ishmael</ToggleGroup.Item>
       <ToggleGroup.Item value={'rodion'}>Rodion</ToggleGroup.Item>
+      {/* <ToggleGroup.Item value={'dante'}>Dante</ToggleGroup.Item> */}
       <ToggleGroup.Item value={'sinclair'}>Sinclair</ToggleGroup.Item>
       <ToggleGroup.Item value={'outis'}>Outis</ToggleGroup.Item>
       <ToggleGroup.Item value={'gregor'}>Gregor</ToggleGroup.Item>
