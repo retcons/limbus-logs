@@ -62,8 +62,9 @@ sup {
 }
 
 p {
-  max-width: 125ch;
+  max-width: 65ch;
   line-height: 1.5;
+  word-wrap: break-word;
 }
 
 strong {
