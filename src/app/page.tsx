@@ -2,13 +2,14 @@ import prisma from '@/prisma';
 import styles from './page.module.scss';
 import HomeClient from './client';
 
-export const revalidate = 60 // revalidate this page every 60 seconds
-
 export default async function Home() {
-  // Fetch all abnormalities, then its logs, then the logs' comments
+  // Fetch all abnormalities, then its logs, then the logs' comments from the database using Prisma
   const abnormalities = await prisma.abnormalities.findMany({
     include: {
       logs: {
+        orderBy: {
+          observation_level: 'asc'
+        },
         include: {
           comments: {
             orderBy: {
