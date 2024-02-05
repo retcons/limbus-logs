@@ -10,6 +10,7 @@ export default function SinnerToggle({ selectedSinner, setSelectedSinner }: Prop
       className={styles['toggle-group']}
       type='single'
       defaultValue='all'
+      value={selectedSinner}
       aria-label='Log writer'
       onValueChange={(value: string) => setSelectedSinner(value)}
     >
