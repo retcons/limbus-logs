@@ -3,7 +3,7 @@
 import * as Dialog from '@radix-ui/react-dialog';
 import abnormalityStyles from './abnormality.module.scss';
 import dialogStyles from './dialog.module.scss';
-import Log from '../Log';
+import Log from './Log';
 import type {
   abnormalities as AbnormalitiesType,
   logs as LogsType,
