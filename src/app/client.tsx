@@ -1,61 +1,40 @@
 'use client';
 import { useState } from 'react';
-import * as ToggleGroup from '@radix-ui/react-toggle-group';
+import SinnerToggle from './components/Filter/SinnerToggle';
 import Abnormality, { type AbnormalityProps } from './components/Abnormality';
 import styles from './page.module.scss';
 
 export default function HomeClient({
   abnormalities,
 }: {
-    abnormalities: AbnormalityProps[];
+  abnormalities: AbnormalityProps[];
 }) {
   // https://react.dev/reference/react/useState#examples-basic
   // We are using React's useState to manage the state of the selected sinner
   // aka Check what Sinner is currently selected in the filter
+  const [search, setSearch] = useState('');
   const [selectedSinner, setSelectedSinner] = useState('all');
 
   return (
     <>
-      <nav className={styles.writer}>
-        <span className={styles['writer-head']}>Log Writer</span>
-        <ToggleGroup.Root
-          className={styles['writer-toggle-group']}
-          type='single'
-          defaultValue='all'
-          aria-label='Log writer'
-          onValueChange={(value: string) => setSelectedSinner(value)}
-        >
-          <ToggleGroup.Item value={'all'} aria-label='All writers'>
-            All
-          </ToggleGroup.Item>
-          <ToggleGroup.Item value={'yi_sang'} aria-label='Yi Sang'>
-            Yi Sang
-          </ToggleGroup.Item>
-          <ToggleGroup.Item value={'faust'} aria-label='Faust'>
-            Faust
-          </ToggleGroup.Item>
-          <ToggleGroup.Item value={'don_quixote'} aria-label='Don Quixote'>
-            Don Quixote
-          </ToggleGroup.Item>
-          <ToggleGroup.Item value={'ryoshu'} aria-label='Ryōshū'>
-            Ryōshū
-          </ToggleGroup.Item>
-          <ToggleGroup.Item value={'meursault'}>Meursault</ToggleGroup.Item>
-          <ToggleGroup.Item value={'hong_lu'}>Hong Lu</ToggleGroup.Item>
-          <ToggleGroup.Item value={'heathcliff'}>Heathcliff</ToggleGroup.Item>
-          <ToggleGroup.Item value={'ishmael'}>Ishmael</ToggleGroup.Item>
-          <ToggleGroup.Item value={'rodion'}>Rodion</ToggleGroup.Item>
-          <ToggleGroup.Item value={'sinclair'}>Sinclair</ToggleGroup.Item>
-          <ToggleGroup.Item value={'outis'}>Outis</ToggleGroup.Item>
-          <ToggleGroup.Item value={'gregor'}>Gregor</ToggleGroup.Item>
-        </ToggleGroup.Root>
+      <nav className={styles.filter}>
+        <section className={styles['filter-section']}>
+          <label className={styles['filter-label']}>Abnormality</label>
+          <input type='text' value={search} onChange={(e) => setSearch(e.target.value)} className={styles['filter-search']} />
+        </section>
+        <section className={styles['filter-section']}>
+          <label className={styles['filter-label']}>Log Writer</label>
+          <SinnerToggle selectedSinner={selectedSinner} setSelectedSinner={setSelectedSinner} />
+        </section>
       </nav>
       <main className={styles.gallery}>
         {abnormalities
-          .filter((abnormality) =>
-            selectedSinner === 'all'
+          .filter((abnormality) => {
+            return abnormality.name.toLowerCase().includes(search.toLowerCase()) &&
+              selectedSinner === 'all'
               ? true
-              : abnormality.logs[0].sinner_id === selectedSinner
+              : abnormality.logs.some((log) => log.sinner_id === selectedSinner)
+          }
           )
           .map((abnormality) => {
             return (
