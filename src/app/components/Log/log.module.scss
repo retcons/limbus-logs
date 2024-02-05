@@ -1,7 +1,6 @@
 
 .text {
   margin-top: 0;
-
   line-height: 1.5;
   word-wrap: break-word;
   overflow-wrap: break-word;
@@ -12,6 +11,12 @@
 
 .comments {
   margin-top: 0.25rem;
+}
+
+.footer {
+  margin-top: 1rem;
+  color: var(--fg-secondary);
+  text-align: center;
 }
 
 /* sinner colors */
@@ -56,11 +61,16 @@
   color: #bb2727;
 }
 
-.yisang {
+.yi_sang {
   color: #d4dfe8;
 }
 
 .meursault {
   color: #7487e2;
+}
+
+.dante {
+  color: gold;
+  text-shadow: 1px 1px 2px #b01c37, -1px -1px 2px #B01C37, -2px 2px 2px #B01C37, 2px -2px 2px #B01C37, 2px -2px 2px #B01C37;
 }
 /* stylelint-enable */

@@ -1,8 +1,8 @@
-import prisma from '@/prisma';
+import prisma from '../index';
 import sinners from './sinners.json';
 
 async function main() {
-  const createSinners = await prisma.sinner.createMany({
+  const createSinners = await prisma.sinners.createMany({
     data: sinners,
     skipDuplicates: true
   })

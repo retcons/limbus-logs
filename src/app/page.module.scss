@@ -14,6 +14,12 @@
 
   width: 100%;
   max-width: 1230px;
+  padding: 1rem;
+
+  @media screen and (width <= 768px) {
+    display: flex;
+    flex-flow: wrap column;
+  }
 }
 
 /* filter */
@@ -25,7 +31,7 @@
   place-items: baseline;
 
   width: 100%;
-  margin-bottom: 1rem;
+  padding: 1rem;
 
   &-head {
     padding: 2px 16px 2px 8px;
@@ -43,8 +49,11 @@
     display: flex;
     flex-flow: wrap row;
     gap: 0.25rem;
+    place-items: center;
 
     button {
+      justify-content: center;
+
       margin: 1.5px;
       padding: 2px 12px;
 

@@ -59,68 +59,6 @@ sup {
 }
 
 p {
-  max-width: 65ch;
+  max-width: 125ch;
   line-height: 1.5;
-}
-
-/* items */
-.log {
-  overflow-y: scroll;
-  max-height: 80vh;
-  white-space: pre;
-}
-
-.bottom {
-  display: flex;
-  gap: 10px;
-  align-items: baseline;
-}
-
-/* Media Queries */
-@media screen and (width <= 768px) {
-  #gallery .abnormality {
-    width: 100%;
-  }
-
-  .id {
-    font-size: 1rem;
-  }
-
-  .risk img {
-    width: 100%;
-  }
-
-  .name p {
-    font-size: 90%;
-  }
-
-  button {
-    font-size: 14px;
-  }
-
-  .filterhead {
-    font-size: 1rem;
-  }
-}
-
-@media screen and (width <= 480px) {
-  #gallery .abnormality {
-    width: 100%;
-  }
-
-  .open-dialog-btn {
-    font-size: 24px;
-  }
-
-  .id {
-    font-size: 24px;
-  }
-
-  .risk img {
-    width: 70%;
-  }
-
-  .name p {
-    font-size: 24px;
-  }
 }

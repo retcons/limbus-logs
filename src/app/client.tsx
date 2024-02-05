@@ -3,14 +3,14 @@ import { useState } from 'react';
 import * as ToggleGroup from '@radix-ui/react-toggle-group';
 import Abnormality from './components/Abnormality';
 import styles from './page.module.scss';
-import type { abnormality, log, comment } from '@prisma/client';
+import type { abnormalities as AbnormalitiesType, logs as LogsType, comments as CommentsType } from '@prisma/client';
 
 export default function HomeClient({
   abnormalities,
 }: {
-  abnormalities: (abnormality & {
-    logs: (log & {
-      comments: comment[];
+  abnormalities: (AbnormalitiesType & {
+    logs: (LogsType & {
+      comments: CommentsType[];
     })[];
   })[];
 }) {
@@ -50,6 +50,7 @@ export default function HomeClient({
           <ToggleGroup.Item value={'rodion'}>Rodion</ToggleGroup.Item>
           <ToggleGroup.Item value={'sinclair'}>Sinclair</ToggleGroup.Item>
           <ToggleGroup.Item value={'outis'}>Outis</ToggleGroup.Item>
+          <ToggleGroup.Item value={'gregor'}>Gregor</ToggleGroup.Item>
         </ToggleGroup.Root>
       </nav>
       <main className={styles.gallery}>
@@ -61,7 +62,7 @@ export default function HomeClient({
           )
           .map((abnormality) => {
             return (
-              <Abnormality abnormality={abnormality} key={abnormality.id} />
+              <Abnormality abnormality={abnormality} key={abnormality.name} />
             );
           })}
       </main>

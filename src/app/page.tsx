@@ -2,9 +2,11 @@ import prisma from '@/prisma';
 import styles from './page.module.scss';
 import HomeClient from './client';
 
+export const revalidate = 60 // revalidate this page every 60 seconds
+
 export default async function Home() {
   // Fetch all abnormalities, then its logs, then the logs' comments
-  const abnormalities = await prisma.abnormality.findMany({
+  const abnormalities = await prisma.abnormalities.findMany({
     include: {
       logs: {
         orderBy: {
@@ -33,7 +35,8 @@ export default async function Home() {
           due to identical entries, but not all. Additional comments from other
           sinners will be color-coded accordingly.
         </span>
-        <sup>last updated: canto iv part iii - june 15 2023</sup>
+        <sup>Managed by <a href="https://github.com/retcons">jordan</a>, please direct any corrections, concerns, etc. to me.
+        last updated: canto v part 3 - december 1</sup>
       </header>
       {/*
        * Because of React adding server components
