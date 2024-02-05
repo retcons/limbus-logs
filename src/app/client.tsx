@@ -20,7 +20,7 @@ export default function HomeClient({
       <nav className={styles.filter}>
         <section className={styles['filter-section']}>
           <label className={styles['filter-label']}>Abnormality</label>
-          <input type='text' value={search} onChange={(e) => setSearch(e.target.value)} className={styles['filter-search']} />
+          <input type='text' value={search} onChange={(e) => setSearch(e.target.value)} className={styles['search']} />
         </section>
         <section className={styles['filter-section']}>
           <label className={styles['filter-label']}>Log Writer</label>

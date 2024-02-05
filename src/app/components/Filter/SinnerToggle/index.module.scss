@@ -12,7 +12,7 @@
 
     font-size: 16px;
     font-weight: bold;
-    color: #341408;
+    color: var(--accent-secondary);
 
     background-color: var(--fg-secondary);
     border: 2px solid var(--accent);
@@ -26,9 +26,9 @@
     }
 
     &[data-state='on'] {
-      color: #ffd57b;
-      background-color: #663c2b7e;
-      border: 2px solid #ffd57b;
+      color: var(--highlight);
+      background-color: var(--bg-tertiary);
+      border: 2px solid var(--highlight);
     }
   }
 }
