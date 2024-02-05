@@ -49,24 +49,23 @@
 }
 
 .filter-search {
-      color: var(--accent-secondary);
+  color: var(--accent-secondary);
 
-    background-color: var(--fg-secondary);
-    border: 2px solid var(--accent);
+  background-color: var(--fg-secondary);
+  border: 2px solid var(--accent);
 
-    transition: 0.15s;
+  transition: 0.15s;
 
-    &:hover {
-      color: var(--fg-primary);
-      background-color: var(--bg-secondary);
-      border: 2px solid var(--border-hover);
-    }
+  &:hover {
+    color: var(--fg-primary);
+    background-color: var(--bg-secondary);
+    border: 2px solid var(--border-hover);
+  }
 
-    &:focus {
-      color: var(--highlight);
-      background-color: var(--bg-tertiary);;
-      border: 2px solid var(--highlight);
-      outline: none;
-    }
-
+  &:focus {
+    color: var(--highlight);
+    background-color: var(--bg-tertiary);
+    border: 2px solid var(--highlight);
+    outline: none;
+  }
 }
