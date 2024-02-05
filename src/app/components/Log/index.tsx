@@ -28,7 +28,11 @@ export default function Log({
       className={tabsStyles.root}
       defaultValue={`${logs[0].observation_level}`}
     >
+      {/* This is where the Oberservation Level tabs are displayed 
+        * 0 is No Data, 1 is Observation Level 1, etc.
+      */}
       <Tabs.List className={tabsStyles.list} aria-label='Observation level'>
+        {/* We loop over the array of logs to create the tabs themselves */}
         {logs?.map((entry) => (
           <Tabs.Trigger
             className={tabsStyles.trigger}
@@ -41,6 +45,7 @@ export default function Log({
           </Tabs.Trigger>
         ))}
       </Tabs.List>
+      {/* We loop over the array of log text to create the tab's content */}
       {logs?.map((entry) => (
         <Tabs.Content
           className={tabsStyles.content}
@@ -54,6 +59,9 @@ export default function Log({
           {/* This is where other sinners' comments are displayed, if any */}
           {entry.comments.length !== 0 && (
             <aside className={logStyles.comments}>
+              {/* If there are comments, then we map over the array of comments to put them in their respective <p></p> tags
+                * They are colour coded based on the sinner_id from log.module.scss 
+              */}
               {entry.comments?.map((comment) => (
                 <p className={logStyles[comment.sinner_id]} key={comment.id}>
                   → {comment.text}
@@ -62,7 +70,7 @@ export default function Log({
             </aside>
           )}
           <footer className={logStyles.footer}>
-            Written by {idToName(entry.sinner_id)}
+            Written by <strong>{idToName(entry.sinner_id)}</strong>
           </footer>
         </Tabs.Content>
       ))}
