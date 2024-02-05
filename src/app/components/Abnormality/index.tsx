@@ -40,8 +40,8 @@ export default function Abnormality({
                 <span className={abnormalityStyles.id}>{abnormality.id}</span>
                 <img
                   className={abnormalityStyles.risk}
-                  src={`https://raw.githubusercontent.com/retcons/limbus-logs/main/images/risk%20level/${abnormality.risk}.png`}
-                  alt={`Risk level of ${abnormality.risk}`}
+                  src={`https://raw.githubusercontent.com/retcons/limbus-logs/main/images/risk_level/${abnormality.risk}.png`}
+                  alt={`Risk level of ${abnormality.name}`}
                 />
               </div>
               <p className={abnormalityStyles.name}>{abnormality.name}</p>
