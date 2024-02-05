@@ -1,6 +1,7 @@
 import * as Tabs from '@radix-ui/react-tabs';
 import tabsStyles from './tabs.module.scss';
 import logStyles from './log.module.scss';
+import sinnerColours from '../../../styles/sinners.module.scss';
 import type { logs as LogsTypes, comments as CommentsType } from '@prisma/client';
 
 
@@ -63,7 +64,7 @@ export default function Log({
                 * They are colour coded based on the sinner_id from log.module.scss 
               */}
               {entry.comments?.map((comment) => (
-                <p className={logStyles[comment.sinner_id]} key={comment.id}>
+                <p className={sinnerColours[comment.sinner_id]} key={comment.id}>
                   → {comment.text}
                 </p>
               ))}
