@@ -3,6 +3,11 @@
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+  place-content: center;
+
+  p {
+    max-width: unset;
+  }
 }
 
 /* gallery items */
