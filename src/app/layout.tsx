@@ -7,8 +7,7 @@ export const metadata = {
   title: 'Observation Log Library',
   description:
     'A collection for easy access to observation logs of enemies & abnormalities in Limbus Company. Some entries are combined due to identical content, but not all.',
-  keywords: ['Limbus Company', 'Observation logs', 'Abnormality'],
-  themeColor: '#963',
+  keywords: ['Limbus Company', 'Observation logs', 'Abnormality']
 };
 
 export default function RootLayout({
