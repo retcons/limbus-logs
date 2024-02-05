@@ -10,14 +10,22 @@ import type {
   comments as CommentsType,
 } from '@prisma/client';
 
+// I am declaring the type (shape) of the Abnormality's data here
+// This is to keep things looking cleaner and so it can be imported to /client.tsx
+export type AbnormalityProps = AbnormalitiesType & {
+  logs: (LogsType & {
+    comments: CommentsType[];
+  })[];
+};
+
+// This component represents a 'card' for an abnormality in the gallery
+// It has a modal that contains the log information when clicked on
+// The benefits of components is that they can be reused and are easier to maintain
+// You only need to write the code once; you can use it as many times as you want with other data to avoid repetition
 export default function Abnormality({
   abnormality,
 }: {
-  abnormality: AbnormalitiesType & {
-    logs: (LogsType & {
-      comments: CommentsType[];
-    })[];
-  };
+  abnormality: AbnormalityProps
 }) {
   return (
     <Dialog.Root>
@@ -41,7 +49,7 @@ export default function Abnormality({
                 <img
                   className={abnormalityStyles.risk}
                   src={`https://raw.githubusercontent.com/retcons/limbus-logs/main/images/risk_level/${abnormality.risk}.png`}
-                  alt={`Risk level of ${abnormality.name}`}
+                  alt={`${abnormality.name} has a risk level of ${abnormality.risk}`}
                 />
               </div>
               <p className={abnormalityStyles.name}>{abnormality.name}</p>

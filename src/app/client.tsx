@@ -1,20 +1,17 @@
 'use client';
 import { useState } from 'react';
 import * as ToggleGroup from '@radix-ui/react-toggle-group';
-import Abnormality from './components/Abnormality';
+import Abnormality, { type AbnormalityProps } from './components/Abnormality';
 import styles from './page.module.scss';
-import type { abnormalities as AbnormalitiesType, logs as LogsType, comments as CommentsType } from '@prisma/client';
 
 export default function HomeClient({
   abnormalities,
 }: {
-  abnormalities: (AbnormalitiesType & {
-    logs: (LogsType & {
-      comments: CommentsType[];
-    })[];
-  })[];
+    abnormalities: AbnormalityProps[];
 }) {
   // https://react.dev/reference/react/useState#examples-basic
+  // We are using React's useState to manage the state of the selected sinner
+  // aka Check what Sinner is currently selected in the filter
   const [selectedSinner, setSelectedSinner] = useState('all');
 
   return (
