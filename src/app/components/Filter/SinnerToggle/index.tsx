@@ -5,14 +5,15 @@ import styles from './index.module.scss'
 type Props = { selectedSinner: string; setSelectedSinner: Dispatch<SetStateAction<string>> }
 
 export default function SinnerToggle({ selectedSinner, setSelectedSinner }: Props) {
-  return(
+
+  return (
     <ToggleGroup.Root
       className={styles['toggle-group']}
       type='single'
       defaultValue='all'
       value={selectedSinner}
       aria-label='Log writer'
-      onValueChange={(value: string) => setSelectedSinner(value)}
+      onValueChange={(value: string) => { value === '' ? setSelectedSinner('all') : setSelectedSinner(value) }}
     >
       <ToggleGroup.Item value={'all'} aria-label='All writers'>
         All
