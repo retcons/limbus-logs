@@ -1,4 +1,5 @@
 import * as Tabs from '@radix-ui/react-tabs';
+import { idToName } from '@/app/scripts/names';
 import tabsStyles from './tabs.module.scss';
 import logStyles from './log.module.scss';
 import sinnerColours from '../../../styles/sinners.module.scss';
@@ -16,14 +17,6 @@ export default function Log({
 }: {
   logs: Props[];
 }) {
-  // Simple function for converting snake_case to Title Case for Sinners
-  const idToName = (id: string) => {
-    return id
-      .split('_')
-      .map((word) => word.charAt(0).toUpperCase() + word.substring(1))
-      .join(' ');
-  };
-
   return (
     <Tabs.Root
       className={tabsStyles.root}
