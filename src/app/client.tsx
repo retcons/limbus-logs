@@ -1,70 +1,55 @@
 'use client';
 import { useState } from 'react';
-import * as ToggleGroup from '@radix-ui/react-toggle-group';
-import Abnormality from './components/Abnormality';
+import SinnerToggle from './components/Filter/SinnerToggle';
+import Abnormality, { type AbnormalityProps } from './components/Abnormality';
+import { idToName } from '@/app/scripts/names';
 import styles from './page.module.scss';
-import type { abnormalities as AbnormalitiesType, logs as LogsType, comments as CommentsType } from '@prisma/client';
 
 export default function HomeClient({
   abnormalities,
 }: {
-  abnormalities: (AbnormalitiesType & {
-    logs: (LogsType & {
-      comments: CommentsType[];
-    })[];
-  })[];
+  abnormalities: AbnormalityProps[];
 }) {
   // https://react.dev/reference/react/useState#examples-basic
+  // We are using React's useState to manage the state of the selected sinner
+  // aka Check what Sinner is currently selected in the filter
+  const [search, setSearch] = useState('');
   const [selectedSinner, setSelectedSinner] = useState('all');
+
+  // Filter down the abnormality list to match the search query AND if a sinner wrote a log for it
+  const filteredAbnormalities = abnormalities.filter((abnormality) => {
+    const searchFilter = abnormality.name.toLowerCase().includes(search.toLowerCase());
+    const sinnerFilter = selectedSinner === 'all'
+      ? true
+      : abnormality.logs.some((log) => log.sinner_id === selectedSinner);
+    
+    return searchFilter && sinnerFilter;
+  })
 
   return (
     <>
-      <nav className={styles.writer}>
-        <span className={styles['writer-head']}>Log Writer</span>
-        <ToggleGroup.Root
-          className={styles['writer-toggle-group']}
-          type='single'
-          defaultValue='all'
-          aria-label='Log writer'
-          onValueChange={(value: string) => setSelectedSinner(value)}
-        >
-          <ToggleGroup.Item value={'all'} aria-label='All writers'>
-            All
-          </ToggleGroup.Item>
-          <ToggleGroup.Item value={'yi_sang'} aria-label='Yi Sang'>
-            Yi Sang
-          </ToggleGroup.Item>
-          <ToggleGroup.Item value={'faust'} aria-label='Faust'>
-            Faust
-          </ToggleGroup.Item>
-          <ToggleGroup.Item value={'don_quixote'} aria-label='Don Quixote'>
-            Don Quixote
-          </ToggleGroup.Item>
-          <ToggleGroup.Item value={'ryoshu'} aria-label='Ryōshū'>
-            Ryōshū
-          </ToggleGroup.Item>
-          <ToggleGroup.Item value={'meursault'}>Meursault</ToggleGroup.Item>
-          <ToggleGroup.Item value={'hong_lu'}>Hong Lu</ToggleGroup.Item>
-          <ToggleGroup.Item value={'heathcliff'}>Heathcliff</ToggleGroup.Item>
-          <ToggleGroup.Item value={'ishmael'}>Ishmael</ToggleGroup.Item>
-          <ToggleGroup.Item value={'rodion'}>Rodion</ToggleGroup.Item>
-          <ToggleGroup.Item value={'sinclair'}>Sinclair</ToggleGroup.Item>
-          <ToggleGroup.Item value={'outis'}>Outis</ToggleGroup.Item>
-          <ToggleGroup.Item value={'gregor'}>Gregor</ToggleGroup.Item>
-        </ToggleGroup.Root>
+      <nav className={styles.filter}>
+        <section className={styles['filter-section']}>
+          <label className={styles['filter-label']}>Abnormality</label>
+          <input type='search' value={search} onChange={(e) => { setSearch(e.target.value) }} className={styles['search']} />
+        </section>
+        <section className={styles['filter-section']}>
+          <label className={styles['filter-label']}>Log Writer</label>
+          <SinnerToggle selectedSinner={selectedSinner} setSelectedSinner={setSelectedSinner} />
+        </section>
       </nav>
       <main className={styles.gallery}>
-        {abnormalities
-          .filter((abnormality) =>
-            selectedSinner === 'all'
-              ? true
-              : abnormality.logs[0].sinner_id === selectedSinner
-          )
+        {filteredAbnormalities.length > 0 ? (filteredAbnormalities
+          /* Return the abnormalities that meet this criteria with the Abnormality component */
           .map((abnormality) => {
             return (
               <Abnormality abnormality={abnormality} key={abnormality.name} />
             );
-          })}
+          }))
+          : (
+            // If no results are found, display a message
+            <span className={styles.noresult}>No results found for <strong >{search === '' ? 'anything' : search}</strong> by <strong>{idToName(selectedSinner)}</strong> </span>
+          )}
       </main>
     </>
   );

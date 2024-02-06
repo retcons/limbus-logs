@@ -5,9 +5,18 @@
 }
 
 .list {
+  overflow-x: auto;
   display: flex;
   flex-direction: row;
+
+  min-width: 100%;
+  max-width: fit-content;
+  
   border: 1px solid transparent;
+
+  @media screen and (width <= 768px) {
+    font-size: 0.8rem;
+  }
 }
 
 .trigger {
@@ -40,8 +49,9 @@
 .content {
   overflow-y: auto;
   flex-grow: 1;
-  padding: 1.5rem;
+
   max-height: 60vh;
+  padding: 1.5rem;
 
   color: var(--fg-primary);
   text-align: left;

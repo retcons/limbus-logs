@@ -39,13 +39,18 @@
 }
 
 .title {
-    font-family: var(--font-bebas), sans-serif;
-    font-weight: 600;
+  font-family: var(--font-bebas), sans-serif;
+  font-weight: 600;
 }
 
 .description {
+  max-width: fit-content;
   margin-bottom: 1rem;
   white-space: pre;
+
+  @media screen and (width <= 768px) {
+    max-width: 65ch;
+  }
 }
 
 /* dialog buttons */

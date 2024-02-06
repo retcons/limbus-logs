@@ -2,12 +2,15 @@
 
 :root {
   --accent: #963;
+  --accent-secondary: #341408;
   --fg-primary: #ffe9cd;
   --fg-secondary: #e3c290;
   --fg-tertiary: #c0945e;
   --bg-primary: black;
   --bg-secondary: #120804;
+  --bg-tertiary: #663c2b7e;
   --border-hover: #ffd5ac;
+  --highlight: #ffd57b;
 }
 
 body {
@@ -59,6 +62,11 @@ sup {
 }
 
 p {
-  max-width: 125ch;
+  max-width: 65ch;
   line-height: 1.5;
+  word-wrap: break-word;
+}
+
+strong {
+  font-weight: bold;
 }
