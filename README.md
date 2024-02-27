@@ -1,6 +1,5 @@
-# Limbus Company Observation Logs
-### https://limbus-logs.vercel.app/
-**As of February 5, the URL has changed! Please make sure to update your bookmarks <3**
+# [https://limbus-logs.vercel.app/](https://limbus-logs.vercel.app/)
+## **As of February 5, the URL has changed! Please make sure to update your bookmarks <3**
 
  A collection for easy access to observation logs of enemies & abnormalities in Limbus Company. Some entries are combined due to identical content.
 
