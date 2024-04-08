@@ -59,4 +59,5 @@ enum risk_level {
   HE
   WAW
   ALEPH
+  UNKNOWN
 }
