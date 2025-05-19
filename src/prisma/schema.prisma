@@ -4,60 +4,63 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url      = env("DATABASE_URI")
 }
 
-/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
-/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
 model abnormalities {
-  id      String
-  name    String     @id(map: "abnormality_pkey")
-  image   String?
-  risk    risk_level @default(ZAYIN)
-  chapter Int?
-  desc    String?
-  logs    logs[]
+  name            String        @id(map: "abnormality_pkey") @default("Abnormality")
+  classCode       String?       @map("class_code")
+  riskLevel       RiskLevelEnum @default(ZAYIN) @map("risk_level")
+  riskLevelNumber Int?          @default(0) @map("risk_level_number")
+  image           String?
+  chapter         Int?
+  desc            String?
+  logs            logs[]
+
+  @@map("Abnormalities")
 }
 
-/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
-/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
 model comments {
-  id        String  @id(map: "comment_pkey") @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  text      String
-  sinner_id String
-  log_id    String  @db.Uuid
-  order     Int?    @default(0)
-  logs      logs    @relation(fields: [log_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  sinners   sinners @relation(fields: [sinner_id], references: [id], onUpdate: NoAction)
+  id       String  @id(map: "comment_pkey") @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  text     String
+  sinnerId String  @map("sinner_id")
+  logId    String  @map("log_id") @db.Uuid
+  order    Int?    @default(0)
+  logs     logs    @relation(fields: [logId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  sinner   sinners @relation(fields: [sinnerId], references: [id], onUpdate: NoAction)
+
+  @@map("Comments")
 }
 
-/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
-/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
 model logs {
-  id                String        @id(map: "log_pkey") @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  observation_level Int           @default(0)
-  text              String
-  sinner_id         String
-  abnormality_name  String
-  comments          comments[]
-  abnormalities     abnormalities @relation(fields: [abnormality_name], references: [name], onDelete: NoAction, onUpdate: NoAction)
-  sinners           sinners       @relation(fields: [sinner_id], references: [id], onUpdate: NoAction)
+  id               String        @id(map: "log_pkey") @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  observationLevel Int           @default(0) @map("observation_level")
+  text             String
+  sinnerId         String        @map("sinner_id")
+  abnormalityName  String        @map("abnormality_name")
+  abnormality      abnormalities @relation(fields: [abnormalityName], references: [name], onDelete: NoAction, onUpdate: NoAction)
+  comments         comments[]
+  sinners          sinners       @relation(fields: [sinnerId], references: [id], onUpdate: NoAction)
+
+  @@map("Logs")
 }
 
-/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
-/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
 model sinners {
   id       String     @id(map: "sinner_pkey")
   name     String
   comments comments[]
   logs     logs[]
+
+  @@map("Sinners")
 }
 
-enum risk_level {
+enum RiskLevelEnum {
   ZAYIN
   TETH
   HE
   WAW
   ALEPH
   UNKNOWN
+
+  @@map("risk_level_enum")
 }
