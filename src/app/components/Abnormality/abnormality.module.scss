@@ -9,12 +9,12 @@
   box-sizing: border-box;
   width: 100%;
   max-width: 400px;
+  border: 1px var(--accent) solid;
 
   font-family: var(--font-bebas), sans-serif;
   color: var(--fg-primary);
 
   background-color: var(--bg-secondary);
-  border: 1px var(--accent) solid;
 
   transition: 0.125s;
 
@@ -55,8 +55,9 @@
       place-content: center;
       place-items: center;
 
-      .id {
+      .class-code {
         padding: 0.15rem 1rem;
+        border: 1px solid var(--fg-tertiary);
 
         font-family: var(--font-bebas), sans-serif;
         font-size: 1.25rem;
@@ -64,7 +65,6 @@
         color: var(--fg-tertiary);
 
         background-color: #16130e83;
-        border: 1px solid var(--fg-tertiary);
       }
 
       .risk {

@@ -57,24 +57,24 @@
 .search {
   width: 100%;
   padding: 0.25rem;
+  border: 2px solid var(--accent);
 
   color: var(--accent-secondary);
 
   background-color: var(--fg-secondary);
-  border: 2px solid var(--accent);
 
   transition: 0.15s;
 
   &:hover {
+    border: 2px solid var(--border-hover);
     color: var(--fg-primary);
     background-color: var(--bg-secondary);
-    border: 2px solid var(--border-hover);
   }
 
   &:focus {
+    border: 2px solid var(--highlight);
     color: var(--highlight);
     background-color: var(--bg-tertiary);
-    border: 2px solid var(--highlight);
     outline: none;
   }
 }
