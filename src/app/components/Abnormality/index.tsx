@@ -25,7 +25,7 @@ export type AbnormalityProps = AbnormalitiesType & {
 export default function Abnormality({
   abnormality,
 }: {
-  abnormality: AbnormalityProps
+  abnormality: AbnormalityProps;
 }) {
   return (
     <Dialog.Root>
@@ -45,11 +45,13 @@ export default function Abnormality({
           <figcaption className={abnormalityStyles.footer}>
             <div className={abnormalityStyles.details}>
               <div className={abnormalityStyles.wrapper}>
-                <h3 className={abnormalityStyles.id}>{abnormality.id}</h3>
+                <h3 className={abnormalityStyles['class-code']}>
+                  {abnormality.classCode}
+                </h3>
                 <img
-                  className={abnormalityStyles.risk}
-                  src={`https://raw.githubusercontent.com/retcons/limbus-logs/main/images/risk_level/${abnormality.risk}.png`}
-                  alt={`${abnormality.name} has a risk level of ${abnormality.risk}`}
+                  className={abnormalityStyles.riskLevel}
+                  src={`https://raw.githubusercontent.com/retcons/limbus-logs/main/images/risk_level/${abnormality.riskLevel}.png`}
+                  alt={`${abnormality.name} has a risk level of ${abnormality.riskLevel}`}
                 />
               </div>
               <p className={abnormalityStyles.name}>{abnormality.name}</p>
@@ -63,12 +65,10 @@ export default function Abnormality({
             <Dialog.Title className={dialogStyles.title}>
               {abnormality.name}
             </Dialog.Title>
-            <Dialog.Description>
-              {abnormality.desc && (
-                <sup className={dialogStyles.description}>
-                  {abnormality.desc}
-                </sup>
-              )}
+            {abnormality.desc && (
+              <sup className={dialogStyles.description}>{abnormality.desc}</sup>
+            )}
+            <Dialog.Description asChild>
               <Log logs={abnormality.logs} />
             </Dialog.Description>
             <Dialog.Close asChild>

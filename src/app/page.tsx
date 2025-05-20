@@ -8,7 +8,7 @@ export default async function Home() {
     include: {
       logs: {
         orderBy: {
-          observation_level: 'asc'
+          observationLevel: 'asc'
         },
         include: {
           comments: {

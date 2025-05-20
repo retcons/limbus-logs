@@ -9,26 +9,26 @@
 
     margin: 1.5px;
     padding: 2px 12px;
+    border: 2px solid var(--accent);
 
     font-size: 16px;
     font-weight: bold;
     color: var(--accent-secondary);
 
     background-color: var(--fg-secondary);
-    border: 2px solid var(--accent);
 
     transition: 0.15s;
 
     &:hover {
+      border: 2px solid var(--border-hover);
       color: var(--fg-primary);
       background-color: var(--bg-secondary);
-      border: 2px solid var(--border-hover);
     }
 
     &[data-state='on'] {
+      border: 2px solid var(--highlight);
       color: var(--highlight);
       background-color: var(--bg-tertiary);
-      border: 2px solid var(--highlight);
     }
   }
 }

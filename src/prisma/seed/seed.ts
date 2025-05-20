@@ -1,6 +1,7 @@
 import prisma from '../index';
 import sinners from './sinners.json';
 
+// Simple seed script to populate the Sinners table
 async function main() {
   const createSinners = await prisma.sinners.createMany({
     data: sinners,
