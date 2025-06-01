@@ -2,7 +2,7 @@ import * as Tabs from '@radix-ui/react-tabs';
 import { idToName } from '@/app/scripts/names';
 import tabsStyles from './tabs.module.scss';
 import logStyles from './log.module.scss';
-import sinnerColours from '../../../styles/sinners.module.scss';
+import sinnerColours from '../../../app/styles/sinners.module.scss';
 import type {
   logs as LogsTypes,
   comments as CommentsType,
@@ -18,14 +18,13 @@ export default function Log({ logs }: { logs: Props[] }) {
   return (
     <Tabs.Root
       className={tabsStyles.root}
-      defaultValue={`${logs[0].observationLevel}`}
+      defaultValue={`${logs[0]?.observationLevel ?? 0}`}
     >
       {/* This is where the Oberservation Level tabs are displayed
        * 0 is No Data, 1 is Observation Level 1, etc.
        */}
       <Tabs.List className={tabsStyles.list} aria-label='Observation level'>
-        {/* We loop over the array of logs to create the tabs themselves */}
-        {logs?.map((entry) => (
+        {logs.map((entry) => (
           <Tabs.Trigger
             className={tabsStyles.trigger}
             value={`${entry.observationLevel}`}
@@ -37,30 +36,25 @@ export default function Log({ logs }: { logs: Props[] }) {
           </Tabs.Trigger>
         ))}
       </Tabs.List>
-      {/* We loop over the array of log text to create the tab's content */}
-      {logs?.map((entry) => (
+      {logs.map((entry) => (
         <Tabs.Content
           className={tabsStyles.content}
           value={`${entry.observationLevel}`}
           key={entry.id}
         >
-          {/* This is where the log's text is displayed */}
-          <article className={logStyles.text}>
-            <p>{entry.text}</p>
+          <article>
+            <p className={logStyles.text}>{entry.text}</p>
+            {/* This is where the sinners' comments are displayed if any */}
+            {entry.comments.length !== 0 && (
+              <div className={logStyles.comments}>
+                {entry.comments.map((comment) => (
+                  <p className={comment.sinnerId} key={comment.id}>
+                    → {comment.text} [{idToName(comment.sinnerId)}]
+                  </p>
+                ))}
+              </div>
+            )}
           </article>
-          {/* This is where other sinners' comments are displayed, if any */}
-          {entry.comments.length !== 0 && (
-            <aside className={logStyles.comments}>
-              {/* If there are comments, then we map over the array of comments to put them in their respective <p></p> tags
-               * They are colour coded based on the sinnerId from log.module.scss
-               */}
-              {entry.comments?.map((comment) => (
-                <p className={sinnerColours[comment.sinnerId]} key={comment.id}>
-                  → {comment.text} [{idToName(comment.sinnerId)}]
-                </p>
-              ))}
-            </aside>
-          )}
           <footer className={logStyles.footer}>
             Written by <strong>{idToName(entry.sinnerId)}</strong>
           </footer>

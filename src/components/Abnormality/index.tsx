@@ -27,6 +27,47 @@ export default function Abnormality({
 }: {
   abnormality: AbnormalityProps;
 }) {
+  if (!abnormality) {
+    return (
+      <Dialog.Root>
+        <Dialog.Trigger asChild>
+          <figure className={abnormalityStyles.abnormality}>
+            <figcaption className={abnormalityStyles.footer}>
+              <div className={abnormalityStyles.details}>
+                <div className={abnormalityStyles.wrapper}>
+                  <h3 className={abnormalityStyles['class-code']}>UNKNOWN</h3>
+                  <img
+                    className={abnormalityStyles.riskLevel}
+                    src={`https://raw.githubusercontent.com/retcons/limbus-logs/main/images/risk_level/UNKNOWN.png`}
+                    alt={`UNKNOWN has a risk level of UNKNOWN`}
+                  />
+                </div>
+                <p className={abnormalityStyles.name}>UNKNOWN</p>
+              </div>
+            </figcaption>
+          </figure>
+        </Dialog.Trigger>
+        <Dialog.Portal>
+          <Dialog.Overlay className={dialogStyles.overlay}>
+            <Dialog.Content className={dialogStyles.content}>
+              <Dialog.Title className={dialogStyles.title}>
+                UNKNOWN
+              </Dialog.Title>
+              <Dialog.Description asChild>
+                Abnormality not found
+              </Dialog.Description>
+              <Dialog.Close asChild>
+                <button className={dialogStyles.close} aria-label='close modal'>
+                  Close
+                </button>
+              </Dialog.Close>
+            </Dialog.Content>
+          </Dialog.Overlay>
+        </Dialog.Portal>
+      </Dialog.Root>
+    );
+  }
+
   return (
     <Dialog.Root>
       <Dialog.Trigger asChild>
@@ -39,29 +80,34 @@ export default function Abnormality({
               <img
                 src={`https://raw.githubusercontent.com/retcons/limbus-logs/main/images/${abnormality.image}`}
                 alt={abnormality.name}
+                onError={(e) => {
+                  e.currentTarget.src =
+                    'https://raw.githubusercontent.com/retcons/limbus-logs/main/images/placeholder.png';
+                }}
               />
             </div>
           )}
           <figcaption className={abnormalityStyles.footer}>
-            <div className={abnormalityStyles.details}>
               <div className={abnormalityStyles.wrapper}>
                 <h3 className={abnormalityStyles['class-code']}>
                   {abnormality.classCode}
                 </h3>
                 <img
-                  className={abnormalityStyles.riskLevel}
+                  className={abnormalityStyles['risk-level']}
                   src={`https://raw.githubusercontent.com/retcons/limbus-logs/main/images/risk_level/${abnormality.riskLevel}.png`}
-                  alt={`${abnormality.name} has a risk level of ${abnormality.riskLevel}`}
+                  alt={`Risk level of ${abnormality.riskLevel}`}
                 />
               </div>
               <p className={abnormalityStyles.name}>{abnormality.name}</p>
-            </div>
           </figcaption>
         </figure>
       </Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Overlay className={dialogStyles.overlay}>
-          <Dialog.Content className={dialogStyles.content}>
+          <Dialog.Content
+            className={dialogStyles.content}
+            aria-describedby={`${abnormality.name}-info`}
+          >
             <Dialog.Title className={dialogStyles.title}>
               {abnormality.name}
             </Dialog.Title>
@@ -69,7 +115,11 @@ export default function Abnormality({
               <sup className={dialogStyles.description}>{abnormality.desc}</sup>
             )}
             <Dialog.Description asChild>
-              <Log logs={abnormality.logs} />
+              {abnormality.logs.length > 0 ? (
+                <Log logs={abnormality.logs} />
+              ) : (
+                <span>No logs found</span>
+              )}
             </Dialog.Description>
             <Dialog.Close asChild>
               <button className={dialogStyles.close} aria-label='close modal'>

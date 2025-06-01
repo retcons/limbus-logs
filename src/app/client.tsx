@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
-import SinnerToggle from './components/Filter/SinnerToggle';
-import Abnormality, { type AbnormalityProps } from './components/Abnormality';
+import SinnerToggle from '../components/Filter/SinnerToggle';
+import Abnormality, { type AbnormalityProps } from '../components/Abnormality';
 import { idToName } from '@/app/scripts/names';
 import styles from './page.module.scss';
 
