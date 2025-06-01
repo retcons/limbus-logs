@@ -1,13 +1,11 @@
-
 .text {
   margin-top: 0;
 
-  line-height: 1.5;
+  line-height: 1.75;
+  text-wrap: pretty;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  white-space: pre-wrap;
-  /* stylelint-disable-next-line property-no-unknown */
-  white-space-collapse: preserve;
+  white-space: pre-line;
 }
 
 .comments {
